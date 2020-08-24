@@ -1,6 +1,5 @@
 package com.rentit.demo.controller;
 
-
 import com.rentit.demo.model.Renter;
 import com.rentit.demo.repository.RenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +40,6 @@ public class RenterController {
     @ResponseBody
     public String deleteRenter(@PathVariable("id") Integer id) throws Exception {
         repository.deleteById(id);
-        return MessageFormat.format("User with ID {0} has been deleted.", id);
+        return MessageFormat.format("Renter with ID {0} has been deleted.", id);
     }
 }

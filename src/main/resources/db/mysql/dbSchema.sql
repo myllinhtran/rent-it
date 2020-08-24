@@ -17,7 +17,7 @@ CREATE TABLE renters (
 	id int auto_increment not null primary key, 
     first_name varchar(30) not null, 
     last_name varchar(30) not null,
-    email varchar(50) unique,
+    email varchar(50) unique not null,
     mobile varchar(20) unique not null
     );
 
