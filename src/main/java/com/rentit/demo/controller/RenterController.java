@@ -9,7 +9,7 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "https://safe-sierra-04090.herokuapp.com/")
+@CrossOrigin
 @RequestMapping(path = "/api/v1")
 public class RenterController {
 

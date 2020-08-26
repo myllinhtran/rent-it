@@ -9,6 +9,7 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/api/v1")
 public class RenteeController {
 

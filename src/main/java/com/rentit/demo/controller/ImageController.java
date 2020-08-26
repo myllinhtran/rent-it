@@ -1,7 +1,6 @@
 package com.rentit.demo.controller;
 
 import com.rentit.demo.model.Image;
-import com.rentit.demo.model.Renter;
 import com.rentit.demo.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +9,7 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/api/v1")
 public class ImageController {
 
