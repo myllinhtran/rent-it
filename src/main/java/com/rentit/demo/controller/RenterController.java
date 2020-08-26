@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.MessageFormat;
 import java.util.Optional;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/api/v1")
 public class RenterController {
