@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.text.MessageFormat;
 import java.util.Optional;
 
-@CrossOrigin
 @RestController
+@CrossOrigin(origins = "https://safe-sierra-04090.herokuapp.com/")
 @RequestMapping(path = "/api/v1")
 public class RenterController {
 
