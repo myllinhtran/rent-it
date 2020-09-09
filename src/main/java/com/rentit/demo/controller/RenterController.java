@@ -9,7 +9,7 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000/")
 @RequestMapping(path = "/api/v1")
 public class RenterController {
 
