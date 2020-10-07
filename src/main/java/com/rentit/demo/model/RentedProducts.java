@@ -14,8 +14,8 @@ public class RentedProducts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne // foreign key relationship
-    @JoinColumn(name = "category_id") // foreign key column name
+    @OneToOne
+    @JoinColumn(name = "category_id")
     private Category categoryId;
 
     @OneToOne
