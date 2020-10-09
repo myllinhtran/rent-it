@@ -10,8 +10,8 @@ import java.text.MessageFormat;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin
 @RequestMapping(path = "/api/v1")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
     @Autowired
