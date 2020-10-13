@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Button, ButtonGroup, Card, Table} from "react-bootstrap";
-import {faEdit, faList, faTrash} from "@fortawesome/free-solid-svg-icons";
+import {Table, Card, ButtonGroup, Button} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faList, faEdit, faTrash} from "@fortawesome/free-solid-svg-icons";
 
-
-class RenterList extends Component {
+class CardList extends Component {
 
     constructor(props) {
         super(props);
@@ -59,8 +58,8 @@ class RenterList extends Component {
                                         <td>{renter.mobile}</td>
                                         <td align={"center"}>
                                             <ButtonGroup>
-                                                <Button size={"sm"} variant={"primary"}><FontAwesomeIcon icon={faEdit}/></Button>
-                                                <Button size={"sm"} variant={"danger"}><FontAwesomeIcon icon={faTrash}/></Button>
+                                                <Button size={"sm"} variant={"primary"}><FontAwesomeIcon icon={faEdit}/></Button>{' '}
+                                                <Button size={"sm"} variant={"danger"}><FontAwesomeIcon icon={faTrash}/></Button>{' '}
                                             </ButtonGroup>
                                         </td>
                                     </tr>
@@ -74,4 +73,4 @@ class RenterList extends Component {
     }
 }
 
-export default RenterList;
+export default CardList;

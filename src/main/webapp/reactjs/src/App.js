@@ -6,9 +6,9 @@ import NavigationBar from "./components/NavigationBar";
 import Welcome from "./components/Welcome";
 import About from "./components/About";
 import Renters from "./components/Renters";
-import RenterList from "./components/RenterList";
 import Categories from "./components/Categories";
 import Footer from "./components/Footer";
+import RenterList from "./components/RenterList";
 
 
 function App() {
