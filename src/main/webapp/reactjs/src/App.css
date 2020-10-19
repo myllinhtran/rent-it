@@ -24,3 +24,12 @@ h2 {
     margin-left: 30px;
 }
 
+img {
+    max-width: 100%;
+}
+
+.square {
+    height: 80px;
+    width: 80px;
+}
+

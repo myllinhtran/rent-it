@@ -6,9 +6,14 @@ import NavigationBar from "./components/NavigationBar";
 import Welcome from "./components/Welcome";
 import About from "./components/About";
 import Renters from "./components/Renters";
-import Categories from "./components/Categories";
 import Footer from "./components/Footer";
 import RenterList from "./components/RenterList";
+import ProductList from "./components/ProductList";
+import Products from "./components/Products";
+import MyProfile from "./components/MyProfile";
+import ProductDetail from "./components/ProductDetail";
+import MyProducts from "./components/MyProducts";
+import Account from "./components/Account";
 
 
 function App() {
@@ -26,9 +31,16 @@ function App() {
                         <Switch>
                             <Route path="/" exact component={Welcome}/>
                             <Route path="/about" exact component={About}/>
+                            <Route path="/profile" exact component={MyProfile}/>
                             <Route path="/renters" exact component={RenterList}/>
                             <Route path="/renters/add" exact component={Renters}/>
-                            <Route path="/categories" exact component={Categories}/>
+                            <Route path="/renters/edit/:id" exact component={Renters}/>
+                            <Route path="/products" exact component={ProductList}/>
+                            <Route path="/products/add" exact component={Products}/>
+                            <Route path="/products/edit/:id" exact component={Products}/>
+                            <Route path="/products/detail/:id" exact component={ProductDetail}/>
+                            <Route path="/profile/products" exact component={MyProducts}/>
+                            <Route path="/profile/account" exact component={Account}/>
                         </Switch>
                     </Col>
                 </Row>
