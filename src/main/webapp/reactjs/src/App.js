@@ -39,8 +39,6 @@ function App() {
                             <Route path="/products/add" exact component={Products}/>
                             <Route path="/products/edit/:id" exact component={Products}/>
                             <Route path="/products/detail/:id" exact component={ProductDetail}/>
-                            <Route path="/profile/products" exact component={MyProducts}/>
-                            <Route path="/profile/account" exact component={Account}/>
                         </Switch>
                     </Col>
                 </Row>

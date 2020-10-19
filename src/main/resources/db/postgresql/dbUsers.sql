@@ -1,0 +1,7 @@
+-- insert into rentit.users values (default, 'Thi My Linh', 'Tran', 'linhtran1953@gmail.com', '623183933');
+-- insert into rentit.users values (default, 'Eduard', 'Feliu Baena', 'feliu06@gmail.com', '634879172');
+-- insert into rentit.users values (default, 'Brian', 'Rivers', 'brianreviers@gmail.com', '673849718');
+-- insert into rentit.users values (default, 'Micheal', 'Hoffman', 'michealhoffman@gmail.com', '672893746');
+-- insert into rentit.users values (default, 'Lea', 'Reilly', 'leareilly@gmail.com', '672839456');
+-- insert into rentit.users values (default, 'Reed', 'Dean', 'reeddean@gmail.com', '672536490');
+-- insert into rentit.users values (default, 'Bob', 'Cat', 'bobcat@gmail.com', '654839102');

@@ -11,7 +11,8 @@ class MyProducts extends Component {
     }
 
     componentDidMount() {
-        axios.get("")
+        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/rentedProducts")
+            .then(response => console.log(response.data))
     };
 
     render() {

@@ -36,21 +36,10 @@
 -- 	mobile varchar(50) unique not null
 -- );
 
--- create table rentit.rented_products(
+-- create table rentit.users(
 -- 	id integer generated always as identity primary key,
--- 	category_id integer not null,
--- 	product_id integer not null,
--- 	renter_id integer not null,
--- 	rentee_id integer not null,
--- 	address varchar(255) not null,
--- 	start_date date not null,
--- 	end_date date not null,
--- 	constraint fk_category
--- 		foreign key (category_id) references rentit.categories(id),
--- 	constraint fk_product
--- 		foreign key (product_id) references rentit.products(id),
--- 	constraint fk_renter
--- 		foreign key (renter_id) references rentit.renters(id),
--- 	constraint fk_rentee
--- 		foreign key(rentee_id) references rentit.rentees(id)
+-- 	first_name varchar(30) not null,
+-- 	last_name varchar(30) not null,
+-- 	email varchar(50) unique not null,
+-- 	mobile varchar(20) unique not null
 -- );

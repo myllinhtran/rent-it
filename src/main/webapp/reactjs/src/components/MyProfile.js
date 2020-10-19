@@ -29,7 +29,12 @@ class MyProfile extends Component {
                             <p><Account/></p>
                         </div>
                     </Tab>
-                    <Tab eventKey={"products"} title={"My Products"}>
+                    <Tab eventKey={"rentedProducts"} title={"Rented Products"}>
+                        <div>
+                            <p><MyProducts/></p>
+                        </div>
+                    </Tab>
+                    <Tab eventKey={"rentingProducts"} title={"Renting Products"}>
                         <div>
                             <p><MyProducts/></p>
                         </div>
