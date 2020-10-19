@@ -14,8 +14,7 @@ public class RentedProductController {
     private RentedProductRepository repository;
 
     @GetMapping(path = "/rentedProducts")
-    public @ResponseBody
-    Iterable<RentedProduct> getAllRentedProducts() {
+    public @ResponseBody Iterable<RentedProduct> getAllRentedProducts() {
         return repository.findAll();
     }
 }

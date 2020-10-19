@@ -17,8 +17,7 @@ class RenterController {
     private RenterRepository repository;
 
     @GetMapping(path = "/renters")
-    public @ResponseBody
-    Iterable<Renter> getAllRenters() {
+    public @ResponseBody Iterable<Renter> getAllRenters() {
         return repository.findAll(); // This returns a JSON or XML with the renters
     }
 
