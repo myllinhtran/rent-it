@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "rented_products")
-public class RentedProducts {
+public class RentedProduct {
 
     @Id
     @Column(name = "id")
@@ -107,7 +107,7 @@ public class RentedProducts {
 
     @Override
     public String toString() {
-        return "RentedProducts {" +
+        return "RentedProduct {" +
                "id=" + id +
                ", categoryId=" + categoryId +
                ", productId=" + productId +
