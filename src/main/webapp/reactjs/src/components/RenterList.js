@@ -51,12 +51,12 @@ class RenterList extends Component {
                 <div style={{"display": this.state.show ? "block" : "none"}}>
                     <MyToast show={this.state.show} message={"Renter Deleted Successfully."} type={"danger"}/>
                 </div>
-                <Card className={"border border-dark bg-dark text-white"}>
+                <Card className={"border border-grey bg-light text-dark"}>
                     <Card.Header>
                         <FontAwesomeIcon icon={faList}/> Renter List
                     </Card.Header>
                     <Card.Body>
-                        <Table bordered hover striped variant="dark">
+                        <Table bordered hover striped>
                             <thead>
                             <tr align="center">
                                 <th>#</th>

@@ -39,7 +39,7 @@ class ProductList extends Component {
             <div>
                 {
                     this.state.products.map((product) => (
-                        <Card className="border border-dark bg-dark text-white" key={product.id}
+                        <Card className="border border-grey bg-light text-dark" key={product.id}
                               style={{margin: "0 0 20px 0"}}>
                             <Row>
                                 <Col xs={2} className={"square"}>

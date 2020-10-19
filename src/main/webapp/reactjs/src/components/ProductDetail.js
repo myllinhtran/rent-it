@@ -39,7 +39,7 @@ class ProductDetail extends Component {
 
         return (
             <div>
-                <Card className="border border-dark bg-dark text-white">
+                <Card className="border border-grey bg-light text-dark">
                     <Card.Header>{category}</Card.Header>
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>

@@ -23,7 +23,7 @@ class MyProfile extends Component {
     render() {
         return (
             <div className={"card-body"}>
-                <Tabs defaultActiveKey={"account"} onSelect={this.handleSelect} variant={"tabs"}>
+                <Tabs defaultActiveKey={"account"} onSelect={this.handleSelect}>
                     <Tab eventKey={"account"} title={"Account"}>
                         <div>
                             <p><Account/></p>
