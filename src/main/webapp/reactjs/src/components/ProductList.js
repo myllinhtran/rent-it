@@ -55,7 +55,7 @@ class ProductList extends Component {
                                             {product.description}
                                         </Card.Text>
                                     </Card.Body>
-                                    <Card.Footer>
+                                    <Card.Footer align={"right"}>
                                         <Link to={"/products/detail/" + product.id}>See more</Link>
                                     </Card.Footer>
                                 </Col>
