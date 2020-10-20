@@ -10,10 +10,8 @@ import Footer from "./components/Footer";
 import RenterList from "./components/RenterList";
 import ProductList from "./components/ProductList";
 import Products from "./components/Products";
-import MyProfile from "./components/MyProfile";
 import ProductDetail from "./components/ProductDetail";
-import MyProducts from "./components/MyProducts";
-import Account from "./components/Account";
+import MyProfile from "./components/MyProfile";
 
 
 function App() {
@@ -31,7 +29,6 @@ function App() {
                         <Switch>
                             <Route path="/" exact component={Welcome}/>
                             <Route path="/about" exact component={About}/>
-                            <Route path="/profile" exact component={MyProfile}/>
                             <Route path="/renters" exact component={RenterList}/>
                             <Route path="/renters/add" exact component={Renters}/>
                             <Route path="/renters/edit/:id" exact component={Renters}/>
@@ -39,6 +36,7 @@ function App() {
                             <Route path="/products/add" exact component={Products}/>
                             <Route path="/products/edit/:id" exact component={Products}/>
                             <Route path="/products/detail/:id" exact component={ProductDetail}/>
+                            <Route path="/profile/:id" exact component={MyProfile}/>
                         </Switch>
                     </Col>
                 </Row>
