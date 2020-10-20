@@ -1,39 +1,25 @@
 import React, {Component} from 'react';
 import {Card, Row, Col, Image} from "react-bootstrap";
 import Bob from './img/Bob.png';
-import axios from 'axios';
 
-class Account extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: []
-        };
-    }
-
-    componentDidMount() {
-        const userId = this.props.match.params.id;
-        if (userId) {
-            this.findAccountById(userId);
-        }
-    };
-
-    findAccountById = (userId) => {
-        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/users/" + userId)
-            .then(response => console.log(response.data))
-    };
+class User extends Component {
 
     render() {
+
+        const {id, firstName, lastName, email, mobile} = this.props;
+
         return (
             <div>
-                <Card>
-                    <Card.Header>Header</Card.Header>
+                <Card style={{margin: "0 0 20px 0"}}>
+                    <Card.Header>ID [{id}]</Card.Header>
                     <Card.Body>
                         <Row>
                             <Col>
-                                <Card.Title>Rentee Name</Card.Title>
-                                <Card.Text>Rentee Personal Information</Card.Text>
+                                <Card.Title>{firstName} {lastName}</Card.Title>
+                                <ul>
+                                    <li>{mobile}</li>
+                                    <li>{email}</li>
+                                </ul>
                             </Col>
                             <Col xs={4} align={"right"}>
                                 <Image src={Bob} rounded={"10px"} style={{width: "50%"}}/>
@@ -46,4 +32,4 @@ class Account extends Component {
     }
 }
 
-export default Account;
+export default User;
