@@ -15,6 +15,6 @@ public class MyRentedProductController {
 
     @GetMapping(path = "/myRentedProducts")
     public @ResponseBody Iterable<RentedProduct> getMyProducts() {
-        return repository.getProductsByUser();
+        return repository.getProductsByUser(3);
     }
 }
