@@ -18,7 +18,7 @@ public class JpaMyRentedProductsRepositoryImpl implements MyRentedProductsReposi
     @Override
     @SuppressWarnings("unchecked")
     public List<RentedProduct> getProductsByUser(Integer userId) {
-        Query query = this.entityManager.createQuery("SELECT * FROM rentit.products");
+        Query query = this.entityManager.createQuery("SELECT name FROM rentit.users WHERE rentit.users.id =:userId");
         query.setParameter("userId", userId);
         return query.getResultList();
     }
