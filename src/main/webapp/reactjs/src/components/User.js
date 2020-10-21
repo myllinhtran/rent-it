@@ -10,8 +10,9 @@ class User extends Component {
 
         return (
             <div>
+                <br/>
                 <Card style={{margin: "0 0 20px 0"}}>
-                    <Card.Header>ID [{id}]</Card.Header>
+                    <Card.Header>User ID: {id}</Card.Header>
                     <Card.Body>
                         <Row>
                             <Col>

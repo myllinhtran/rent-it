@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Tabs, Tab} from "react-bootstrap";
-import MyProducts from "./MyProducts";
+import {Tabs, TabPane} from "react-bootstrap";
+import MyRentedProducts from "./MyRentedProducts";
 import axios from "axios";
 import User from "./User";
+
 
 class MyProfile extends Component {
 
@@ -49,8 +50,8 @@ class MyProfile extends Component {
 
         return (
             <div className={"card-body"}>
-                <Tabs defaultActiveKey={"user"} onSelect={this.handleSelect}>
-                    <Tab eventKey={"user"} title={"User"}>
+                <Tabs defaultActiveKey={"user"} onSelect={this.handleSelect} transition={false}>
+                    <TabPane eventKey={"user"} title={"User"}>
                         <User
                             id={id}
                             firstName={firstName}
@@ -58,8 +59,10 @@ class MyProfile extends Component {
                             mobile={mobile}
                             email={email}
                         />
-                    </Tab>
-                    <Tab eventKey={"rentedProducts"} title={"Rented Products"}><MyProducts/></Tab>
+                    </TabPane>
+                    <TabPane eventKey={"rentedProducts"} title={"Rented Products"}>
+                        <MyRentedProducts/>
+                    </TabPane>
                 </Tabs>
             </div>
         );

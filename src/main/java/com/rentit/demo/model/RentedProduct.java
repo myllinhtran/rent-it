@@ -25,11 +25,11 @@ public class RentedProduct {
 
     @OneToOne
     @JoinColumn(name = "renter_id")
-    private Renter renterId;
+    private User renterId;
 
     @OneToOne
     @JoinColumn(name = "rentee_id")
-    private Rentee renteeId;
+    private User renteeId;
 
     @Column(name = "address")
     private String address;
@@ -66,19 +66,19 @@ public class RentedProduct {
         this.productId = productId;
     }
 
-    public Renter getRenterId() {
+    public User getRenterId() {
         return renterId;
     }
 
-    public void setRenterId(Renter renterId) {
+    public void setRenterId(User renterId) {
         this.renterId = renterId;
     }
 
-    public Rentee getRenteeId() {
+    public User getRenteeId() {
         return renteeId;
     }
 
-    public void setRenteeId(Rentee renteeId) {
+    public void setRenteeId(User renteeId) {
         this.renteeId = renteeId;
     }
 
