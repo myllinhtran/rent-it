@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.List;
+import java.util.Collection;
+
 
 @Repository
 public class JpaMyRentedProductsRepositoryImpl implements MyRentedProductsRepository {
@@ -17,9 +18,9 @@ public class JpaMyRentedProductsRepositoryImpl implements MyRentedProductsReposi
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<RentedProduct> getProductsByUser(Integer userId) {
-        Query query = this.entityManager.createQuery("SELECT name FROM rentit.users WHERE rentit.users.id =:userId");
-        query.setParameter("userId", userId);
+    public Collection<RentedProduct> getProductsByUser(Integer id) {
+        Query query = this.entityManager.createQuery("SELECT name FROM User user WHERE user.id =:id");
+        query.setParameter("id", id);
         return query.getResultList();
     }
 }

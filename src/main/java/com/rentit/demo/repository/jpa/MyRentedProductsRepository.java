@@ -2,10 +2,10 @@ package com.rentit.demo.repository.jpa;
 
 import com.rentit.demo.model.RentedProduct;
 
-import java.util.List;
+import java.util.Collection;
 
 
 public interface MyRentedProductsRepository {
 
-    List<RentedProduct> getProductsByUser(Integer userId);
+    Collection<RentedProduct> getProductsByUser(Integer userId);
 }
