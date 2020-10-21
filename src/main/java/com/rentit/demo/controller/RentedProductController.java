@@ -39,6 +39,7 @@ public class RentedProductController {
     }
 
     @DeleteMapping(path = "/rentedProducts/{id}")
+    @SuppressWarnings("unchecked")
     public String removeProduct(@PathVariable("id") Integer id) {
         repository.deleteById(id);
         return MessageFormat.format("Product with ID {0} has been deleted.", id);

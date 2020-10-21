@@ -15,7 +15,8 @@ public class JpaMyRentedProductImpl implements MyRentedProductRepository {
     private EntityManager em;
 
     @Override
+    @SuppressWarnings("unchecked")
     public List<RentedProduct> getProductByUserId(Integer userId) {
-        return this.em.createQuery("SELECT id FROM rentit.rented_products").getResultList();
+        return this.em.createQuery("SELECT * FROM rentit.rented_products").getResultList();
     }
 }
