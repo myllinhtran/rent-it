@@ -19,7 +19,7 @@ public class JpaMyRentedProductsRepositoryImpl implements JpaRentedProductsRepos
     @Override
     @SuppressWarnings("unchecked")
     public Collection<RentedProduct> getProductsByUser(Integer id) {
-        Query query = this.entityManager.createQuery("SELECT firstName, lastName, email, mobile FROM User user WHERE user.id =:id");
+        Query query = this.entityManager.createQuery("SELECT firstName, lastName, email, mobile FROM Account account WHERE account.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
