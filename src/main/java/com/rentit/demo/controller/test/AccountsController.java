@@ -18,6 +18,6 @@ public class AccountsController {
     @GetMapping("/account/{id}")
     public @ResponseBody
     Collection<Account> getAccount(@PathVariable("id") Integer id) {
-        return repo.findAccountById(id);
+        return repo.findAccountById(3);
     }
 }
