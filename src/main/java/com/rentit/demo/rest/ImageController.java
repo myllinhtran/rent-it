@@ -1,4 +1,4 @@
-package com.rentit.demo.controller;
+package com.rentit.demo.rest;
 
 import com.rentit.demo.model.Image;
 import com.rentit.demo.repository.ImageRepository;

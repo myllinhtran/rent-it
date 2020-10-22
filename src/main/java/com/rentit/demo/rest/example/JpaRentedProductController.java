@@ -1,4 +1,4 @@
-package com.rentit.demo.controller.jpa;
+package com.rentit.demo.rest.example;
 
 import com.rentit.demo.model.RentedProduct;
 import com.rentit.demo.repository.jpa.JpaRentedProductsRepository;

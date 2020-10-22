@@ -1,12 +1,11 @@
-package com.rentit.demo.controller;
+package com.rentit.demo.rest;
 
 import com.rentit.demo.model.Account;
 import com.rentit.demo.repository.AccountRepository;
+import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.MessageFormat;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1")
@@ -14,9 +13,21 @@ import java.util.Optional;
 public class AccountController {
 
     @Autowired
-    private AccountRepository repository;
+    private PlatformService platformService;
 
     @GetMapping(path = "/accounts")
+    public @ResponseBody
+    Iterable<Account> getAccounts() {
+        return platformService.findAllAccounts();
+    }
+
+    @GetMapping(path = "/accounts/{id}")
+    public @ResponseBody
+    Account getAccount(@PathVariable("id") int id) {
+        return platformService.findAccountById(id);
+    }
+
+    /*@GetMapping(path = "/accounts")
     public @ResponseBody
     Iterable<Account> getAllAccounts() {
         return repository.findAll();
@@ -42,5 +53,5 @@ public class AccountController {
     public String deleteAccount(@PathVariable("id") Integer id) {
         repository.deleteById(id);
         return MessageFormat.format("Account with ID {0} has been deleted.", id);
-    }
+    }*/
 }
