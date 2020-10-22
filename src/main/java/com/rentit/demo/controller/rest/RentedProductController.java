@@ -1,7 +1,7 @@
-package com.rentit.demo.controller;
+package com.rentit.demo.controller.rest;
 
 import com.rentit.demo.model.RentedProduct;
-import com.rentit.demo.repository.RentedProductRepository;
+import com.rentit.demo.repository.rest.RentedProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

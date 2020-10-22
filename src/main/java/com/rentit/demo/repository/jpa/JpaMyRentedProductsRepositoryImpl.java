@@ -11,7 +11,7 @@ import java.util.Collection;
 
 
 @Repository
-public class JpaMyRentedProductsRepositoryImpl implements MyRentedProductsRepository {
+public class JpaMyRentedProductsRepositoryImpl implements JpaRentedProductsRepository {
 
     @PersistenceContext
     private EntityManager entityManager;

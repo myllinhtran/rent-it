@@ -3,7 +3,7 @@ import {Card, Table} from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList} from "@fortawesome/free-solid-svg-icons";
 
-class MyRentedProducts extends Component {
+class RentedProducts extends Component {
 
     constructor(props) {
         super(props);
@@ -46,4 +46,4 @@ class MyRentedProducts extends Component {
     }
 }
 
-export default MyRentedProducts;
+export default RentedProducts;

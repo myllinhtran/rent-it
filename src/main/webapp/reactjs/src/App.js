@@ -11,7 +11,7 @@ import RenterList from "./components/RenterList";
 import ProductList from "./components/ProductList";
 import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
-import MyProfile from "./components/MyProfile";
+import Profile from "./components/Profile";
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
                             <Route path="/products/add" exact component={Products}/>
                             <Route path="/products/edit/:id" exact component={Products}/>
                             <Route path="/products/detail/:id" exact component={ProductDetail}/>
-                            <Route path="/profile/:id" exact component={MyProfile}/>
+                            <Route path="/profile/:id" exact component={Profile}/>
                         </Switch>
                     </Col>
                 </Row>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Tabs, TabPane} from "react-bootstrap";
-import MyRentedProducts from "./MyRentedProducts";
+import RentedProducts from "./RentedProducts";
 import axios from "axios";
 import Account from "./Account";
 
 
-class MyProfile extends Component {
+class Profile extends Component {
 
     constructor(props) {
         super(props);
@@ -17,14 +17,14 @@ class MyProfile extends Component {
     }
 
     componentDidMount() {
-        const userId = this.props.match.params.id;
-        if (userId) {
-            this.findAccountById(userId);
+        const accountId = this.props.match.params.id;
+        if (accountId) {
+            this.findAccountById(accountId);
         }
     };
 
-    findAccountById = (userId) => {
-        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/users/" + userId)
+    findAccountById = (accountId) => {
+        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/accounts/" + accountId)
             .then(response => {
                 if (response.data != null) {
                     this.setState({
@@ -61,7 +61,7 @@ class MyProfile extends Component {
                         />
                     </TabPane>
                     <TabPane eventKey={"rentedProducts"} title={"Rented Products"}>
-                        <MyRentedProducts/>
+                        <RentedProducts/>
                     </TabPane>
                 </Tabs>
             </div>
@@ -69,4 +69,4 @@ class MyProfile extends Component {
     }
 }
 
-export default MyProfile;
+export default Profile;

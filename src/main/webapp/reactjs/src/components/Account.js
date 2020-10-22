@@ -12,7 +12,7 @@ class Account extends Component {
             <div>
                 <br/>
                 <Card style={{margin: "0 0 20px 0"}}>
-                    <Card.Header>User ID: {id}</Card.Header>
+                    <Card.Header>Account ID: {id}</Card.Header>
                     <Card.Body>
                         <Row>
                             <Col>

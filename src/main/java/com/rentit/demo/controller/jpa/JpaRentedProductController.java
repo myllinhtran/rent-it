@@ -1,17 +1,18 @@
-package com.rentit.demo.controller;
+package com.rentit.demo.controller.jpa;
 
 import com.rentit.demo.model.RentedProduct;
-import com.rentit.demo.repository.jpa.MyRentedProductsRepository;
+import com.rentit.demo.repository.jpa.JpaRentedProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping(path = "/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
-public class MyRentedProductController {
+public class JpaRentedProductController {
 
     @Autowired
-    MyRentedProductsRepository repository;
+    JpaRentedProductsRepository repository;
 
     @GetMapping(path = "/myRentedProducts")
     public @ResponseBody Iterable<RentedProduct> getMyProducts() {
