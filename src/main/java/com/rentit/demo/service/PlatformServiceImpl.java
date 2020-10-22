@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.MessageFormat;
+
 
 @Service
 public class PlatformServiceImpl implements PlatformService {
@@ -37,4 +39,15 @@ public class PlatformServiceImpl implements PlatformService {
         return accountRepository.save(account);
     }
 
+    @Override
+    @Transactional
+    public Account editAccount(Account account) {
+        return accountRepository.save(account);
+    }
+
+    @Override
+    public void deleteAccount(int id) {
+        accountRepository.deleteById(id);
+        MessageFormat.format("Account with ID {0} has been deleted.", id);
+    }
 }

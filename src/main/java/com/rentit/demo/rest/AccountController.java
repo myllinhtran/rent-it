@@ -34,15 +34,15 @@ public class AccountController {
         return platformService.createAccount(account);
     }
 
-    /*@PutMapping(path = "/accounts")
+    @PutMapping(path = "/accounts")
     public Account updateAccount(@RequestBody Account account) {
-        return platformService.createAccount(account);
-    }*/
+        return platformService.editAccount(account);
+    }
 
-    /*@DeleteMapping(path = "/accounts/{id}")
+    @DeleteMapping(path = "/accounts/{id}")
     @ResponseBody
-    public String deleteAccount(@PathVariable("id") Integer id) {
-        platformService.deleteById(id);
+    public String deleteAccount(@PathVariable("id") int id) {
+        platformService.deleteAccount(id);
         return MessageFormat.format("Account with ID {0} has been deleted.", id);
-    }*/
+    }
 }
