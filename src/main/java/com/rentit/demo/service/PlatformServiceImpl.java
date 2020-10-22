@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.MessageFormat;
-
 
 @Service
 public class PlatformServiceImpl implements PlatformService {
@@ -54,7 +52,6 @@ public class PlatformServiceImpl implements PlatformService {
     @Transactional
     public void deleteAccount(int id) {
         accountRepository.deleteById(id);
-        MessageFormat.format("Account with ID {0} has been deleted.", id);
     }
 
     @Override
@@ -85,6 +82,5 @@ public class PlatformServiceImpl implements PlatformService {
     @Transactional
     public void deleteCategory(int id) {
         categoryRepository.deleteById(id);
-        MessageFormat.format("Category with ID {0} has been deleted.", id);
     }
 }
