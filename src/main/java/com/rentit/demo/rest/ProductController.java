@@ -1,12 +1,11 @@
 package com.rentit.demo.rest;
 
 import com.rentit.demo.model.Product;
-import com.rentit.demo.repository.ProductRepository;
+import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.MessageFormat;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1")
@@ -14,33 +13,33 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
-    private ProductRepository repository;
+    private PlatformService platformService;
 
     @GetMapping(path = "/products")
     public @ResponseBody
     Iterable<Product> getAllProducts() {
-        return repository.findAll(); // This returns a JSON or XML with the renters
+        return platformService.findAllProducts(); // This returns a JSON or XML with the renters
     }
 
     @GetMapping(path = "/products/{id}")
-    public Optional<Product> getProduct(@PathVariable("id") Integer id) {
-        return repository.findById(id);
+    public Product getProduct(@PathVariable("id") Integer id) {
+        return platformService.findProductById(id);
     }
 
     @PostMapping(path = "/products")
     public Product createProduct(@RequestBody Product product) {
-        return repository.save(product);
+        return platformService.createProduct(product);
     }
 
     @PutMapping(path = "/products")
     public Product updateProduct(@RequestBody Product product) {
-        return repository.save(product);
+        return platformService.editProduct(product);
     }
 
     @DeleteMapping(path = "/products/{id}")
     @ResponseBody
     public String deleteProduct(@PathVariable("id") Integer id) throws Exception {
-        repository.deleteById(id);
+        platformService.deleteProduct(id);
         return MessageFormat.format("Product with ID {0} has been deleted.", id);
     }
 }
