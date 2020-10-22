@@ -8,4 +8,5 @@ public interface PlatformService {
 
     Account findAccountById(int id);
     Iterable<Account> findAllAccounts();
+    Account createAccount(Account account);
 }

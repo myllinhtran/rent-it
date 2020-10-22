@@ -30,4 +30,11 @@ public class PlatformServiceImpl implements PlatformService {
     public Iterable<Account> findAllAccounts() {
         return accountRepository.findAll();
     }
+
+    @Override
+    @Transactional
+    public Account createAccount(Account account) {
+        return accountRepository.save(account);
+    }
+
 }
