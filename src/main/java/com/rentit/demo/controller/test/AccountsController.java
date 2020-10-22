@@ -5,7 +5,6 @@ import com.rentit.demo.repository.AccountRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 
 @RestController
 @RequestMapping(path = "/api/v1")
@@ -15,9 +14,9 @@ public class AccountsController {
     @Autowired
     private AccountRepo repo;
 
-    @GetMapping("/account/{id}")
+    @GetMapping(path = "/account/{id}")
     public @ResponseBody
-    Collection<Account> getAccount(@PathVariable("id") Integer id) {
-        return repo.findAccountById(3);
+    Account getAccount(@PathVariable("id") int id) {
+        return repo.findAccountById(id);
     }
 }
