@@ -3,8 +3,8 @@ package com.rentit.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "renters", schema = "Rentit")
-public class Renter {
+@Table(name = "accounts", schema = "Rentit")
+public class Account {
 
     @Id
     @Column(name = "id")
@@ -17,11 +17,11 @@ public class Renter {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "mobile")
     private String mobile;
+
+    @Column(name = "email")
+    private String email;
 
     public Integer getId() {
         return id;
@@ -47,14 +47,6 @@ public class Renter {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getMobile() {
         return mobile;
     }
@@ -63,14 +55,22 @@ public class Renter {
         this.mobile = mobile;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Renter {" +
+        return "Account{" +
                "id=" + id +
                ", firstName='" + firstName + '\'' +
                ", lastName='" + lastName + '\'' +
-               ", email='" + email + '\'' +
                ", mobile='" + mobile + '\'' +
+               ", email='" + email + '\'' +
                '}';
     }
 }

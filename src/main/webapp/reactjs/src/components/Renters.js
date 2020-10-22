@@ -31,7 +31,7 @@ class Renters extends Component {
     };
 
     findRenterById = (renterId) => {
-        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/renters/" + renterId)
+        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/accounts/" + renterId)
             .then(response => {
                 if (response.data != null) {
                     this.setState({
@@ -60,7 +60,7 @@ class Renters extends Component {
             mobile: this.state.mobile
         };
 
-        axios.post("https://safe-sierra-04090.herokuapp.com/api/v1/renters", renter)
+        axios.post("https://safe-sierra-04090.herokuapp.com/api/v1/accounts", renter)
             .then(response => {
                 if (response.data != null) {
                     this.setState({"show": true});
@@ -85,7 +85,7 @@ class Renters extends Component {
             mobile: this.state.mobile
         };
 
-        axios.put("https://safe-sierra-04090.herokuapp.com/api/v1/renters/", renter)
+        axios.put("https://safe-sierra-04090.herokuapp.com/api/v1/accounts/", renter)
             .then(response => {
                 if (response.data != null) {
                     this.setState({"show": true});
@@ -105,7 +105,7 @@ class Renters extends Component {
     };
 
     renterList = () => {
-        return this.props.history.push("/renters");
+        return this.props.history.push("/users");
     };
 
     render() {
@@ -165,7 +165,7 @@ class Renters extends Component {
                                 </Form.Group>
                             </Form.Row>
                         </Card.Body>
-                        <Card.Footer style={{"text-align": "right"}}>
+                        <Card.Footer style={{"textAlign": "right"}}>
                             <Button size="sm" variant="success" type="submit">
                                 <FontAwesomeIcon icon={faSave}/> {this.state.id ? "Update" : "Save"}
                             </Button>{' '}

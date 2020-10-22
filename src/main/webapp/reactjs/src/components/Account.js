@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card, Row, Col, Image} from "react-bootstrap";
 import Bob from './img/Bob.png';
 
-class User extends Component {
+class Account extends Component {
 
     render() {
 
@@ -33,4 +33,4 @@ class User extends Component {
     }
 }
 
-export default User;
+export default Account;

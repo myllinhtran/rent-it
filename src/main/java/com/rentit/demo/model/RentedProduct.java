@@ -1,7 +1,6 @@
 package com.rentit.demo.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -25,11 +24,11 @@ public class RentedProduct {
 
     @OneToOne
     @JoinColumn(name = "renter_id")
-    private User renterId;
+    private Account renterId;
 
     @OneToOne
     @JoinColumn(name = "rentee_id")
-    private User renteeId;
+    private Account renteeId;
 
     @Column(name = "address")
     private String address;
@@ -66,19 +65,19 @@ public class RentedProduct {
         this.productId = productId;
     }
 
-    public User getRenterId() {
+    public Account getRenterId() {
         return renterId;
     }
 
-    public void setRenterId(User renterId) {
+    public void setRenterId(Account renterId) {
         this.renterId = renterId;
     }
 
-    public User getRenteeId() {
+    public Account getRenteeId() {
         return renteeId;
     }
 
-    public void setRenteeId(User renteeId) {
+    public void setRenteeId(Account renteeId) {
         this.renteeId = renteeId;
     }
 

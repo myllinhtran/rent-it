@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Tabs, TabPane} from "react-bootstrap";
 import MyRentedProducts from "./MyRentedProducts";
 import axios from "axios";
-import User from "./User";
+import Account from "./Account";
 
 
 class MyProfile extends Component {
@@ -50,9 +50,9 @@ class MyProfile extends Component {
 
         return (
             <div className={"card-body"}>
-                <Tabs defaultActiveKey={"user"} onSelect={this.handleSelect} transition={false}>
-                    <TabPane eventKey={"user"} title={"User"}>
-                        <User
+                <Tabs defaultActiveKey={"account"} onSelect={this.handleSelect} transition={false}>
+                    <TabPane eventKey={"account"} title={"Account"}>
+                        <Account
                             id={id}
                             firstName={firstName}
                             lastName={lastName}
