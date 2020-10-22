@@ -1,4 +1,4 @@
-package com.rentit.demo.controller.rest;
+package com.rentit.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

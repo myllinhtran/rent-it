@@ -1,4 +1,4 @@
-package com.rentit.demo.repository.rest;
+package com.rentit.demo.repository;
 
 import com.rentit.demo.model.Account;
 import org.springframework.data.repository.CrudRepository;
