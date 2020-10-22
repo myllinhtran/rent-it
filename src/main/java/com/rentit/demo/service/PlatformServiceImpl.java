@@ -2,8 +2,10 @@ package com.rentit.demo.service;
 
 import com.rentit.demo.model.Account;
 import com.rentit.demo.model.Category;
+import com.rentit.demo.model.Product;
 import com.rentit.demo.repository.AccountRepository;
 import com.rentit.demo.repository.CategoryRepository;
+import com.rentit.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,14 +16,17 @@ public class PlatformServiceImpl implements PlatformService {
 
     private AccountRepository accountRepository;
     private CategoryRepository categoryRepository;
+    private ProductRepository productRepository;
 
     @Autowired
     public PlatformServiceImpl(
             AccountRepository accountRepository,
-            CategoryRepository categoryRepository
+            CategoryRepository categoryRepository,
+            ProductRepository productRepository
     ) {
         this.accountRepository = accountRepository;
         this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -82,5 +87,35 @@ public class PlatformServiceImpl implements PlatformService {
     @Transactional
     public void deleteCategory(int id) {
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Product findProductById(int id) {
+        return productRepository.findProductById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Product> findAllProducts() {
+        return productRepository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    @Transactional
+    public Product editProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProduct(int id) {
+        productRepository.deleteById(id);
     }
 }

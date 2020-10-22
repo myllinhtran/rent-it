@@ -28,13 +28,11 @@ public class CategoryController {
 
     @PostMapping(path = "/categories")
     public Category createCategory(@RequestBody Category category) {
-
         return platformService.createCategory(category);
     }
 
     @PutMapping(path = "/categories")
     public Category updateRenter(@RequestBody Category category) {
-
         return platformService.editCategory(category);
     }
 
