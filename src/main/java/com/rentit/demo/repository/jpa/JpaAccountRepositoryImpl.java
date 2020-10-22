@@ -18,7 +18,7 @@ public class JpaAccountRepositoryImpl implements JpaAccountRepository {
     @Override
     @SuppressWarnings("unchecked")
     public Collection<Account> findAccountById(int id) {
-        Query query = this.entityManager.createQuery("SELECT * FROM Account account WHERE account.id =:id");
+        Query query = this.entityManager.createQuery("SELECT firstName, lastName, email, mobile FROM Account account WHERE account.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
