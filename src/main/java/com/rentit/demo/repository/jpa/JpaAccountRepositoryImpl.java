@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+
 
 @Repository
 public class JpaAccountRepositoryImpl implements JpaAccountRepository {
@@ -16,8 +16,6 @@ public class JpaAccountRepositoryImpl implements JpaAccountRepository {
 
     @Override
     public Account findAccountById(int id) {
-        Query query = this.entityManager.createQuery("SELECT firstName, lastName, email, mobile FROM Account account WHERE account.id =:id");
-        query.setParameter("id", id);
-        return ( Account ) query.getSingleResult();
+        return this.entityManager.find(Account.class, id);
     }
 }
