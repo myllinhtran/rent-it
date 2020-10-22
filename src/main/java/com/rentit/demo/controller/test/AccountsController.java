@@ -14,6 +14,12 @@ public class AccountsController {
     @Autowired
     private AccountRepo repo;
 
+    @GetMapping(path = "/account")
+    public @ResponseBody
+    Iterable<Account> getAccounts() {
+        return repo.findAll();
+    }
+
     @GetMapping(path = "/account/{id}")
     public @ResponseBody
     Account getAccount(@PathVariable("id") int id) {
