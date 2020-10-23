@@ -20,7 +20,7 @@ public class RentedProductController {
         return platformService.findRentedProductById(id);
     }
 
-    @GetMapping(path = "/accounts/{id}/rented-products")
+    @GetMapping(path = "/account-rented-products/{id}")
     public @ResponseBody
     Iterable<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
         return platformService.findRentedProductByAccount(id);
