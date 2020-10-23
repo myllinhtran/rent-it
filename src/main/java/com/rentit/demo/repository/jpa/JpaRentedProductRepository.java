@@ -7,5 +7,5 @@ import java.util.Collection;
 
 public interface JpaRentedProductRepository {
 
-    Collection<RentedProduct> getProductByAccount(Integer id);
+    Collection<RentedProduct> getProductByAccount();
 }

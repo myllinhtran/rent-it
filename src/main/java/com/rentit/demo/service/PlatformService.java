@@ -29,7 +29,7 @@ public interface PlatformService {
     void deleteProduct(int id);
 
     RentedProduct findRentedProductById(int id);
-    Collection<RentedProduct> findRentedProductByAccount(int id);
+    Collection<RentedProduct> findRentedProductByAccount();
     Iterable<RentedProduct> findAllRentedProducts();
     void removeRentedProduct(int id);
 }
