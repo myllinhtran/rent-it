@@ -9,7 +9,7 @@ import java.util.Collection;
 
 
 @RestController
-@RequestMapping(path = "/api/v1/")
+@RequestMapping
 @CrossOrigin(origins = "http://localhost:3000")
 public class RentedProductController {
 
@@ -22,7 +22,7 @@ public class RentedProductController {
         return platformService.findRentedProductById(id);
     }
 
-    @GetMapping(value = "/accounts/{id}/rented-products")
+    @GetMapping(path = "/accounts/{id}/rented-products")
     public Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
         return platformService.findRentedProductByAccount(id);
     }
