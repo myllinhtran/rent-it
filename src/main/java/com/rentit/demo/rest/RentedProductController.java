@@ -15,7 +15,7 @@ public class RentedProductController {
     @Autowired
     private PlatformService platformService;
 
-    @GetMapping(path = "/rentedProducts")
+    @GetMapping(path = "/rentedProducts/{id}")
     public @ResponseBody
     Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
         return platformService.findRentedProductByAccount(id);
