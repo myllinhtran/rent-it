@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import java.util.Collection;
 
 
 @Repository
@@ -17,9 +15,7 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     private EntityManager entityManager;
 
     @Override
-    @SuppressWarnings("unchecked")
-    public Collection<RentedProduct> getProductByAccount() {
-        Query query = this.entityManager.createQuery("SELECT firstName FROM Account account");
-        return query.getResultList();
+    public RentedProduct getProductById(int id) {
+        return this.entityManager.find(RentedProduct.class, id);
     }
 }

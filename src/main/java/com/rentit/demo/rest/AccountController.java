@@ -28,7 +28,6 @@ public class AccountController {
         return platformService.findAccountById(id);
     }
 
-
     @PostMapping(path = "/accounts")
     public Account addAccount(@RequestBody Account account) {
         return platformService.createAccount(account);

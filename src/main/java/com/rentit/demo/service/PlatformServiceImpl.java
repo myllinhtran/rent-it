@@ -127,14 +127,15 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public RentedProduct findRentedProductById(int id) {
-        return null;
+        return rentedProductRepository.getProductById(id);
     }
 
     @Override
     @Transactional(readOnly = true)
     public Collection<RentedProduct> findRentedProductByAccount() {
-        return rentedProductRepository.getProductByAccount();
+        return null;
     }
 
     @Override
