@@ -5,25 +5,18 @@ import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(path = "/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
 public class RentedProductController {
 
     @Autowired
     private PlatformService platformService;
 
-    @GetMapping(path = "/api/v1/rented-products/{id}")
+    @GetMapping(path = "/rented-products/{id}")
     public @ResponseBody
     RentedProduct getRentedProduct(@PathVariable("id") int id) {
         return platformService.findRentedProductById(id);
-    }
-
-    @GetMapping(path = "/accounts/{id}/rented-products")
-    public @ResponseBody Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
-        return platformService.findRentedProductByAccount(id);
     }
 }
