@@ -17,13 +17,11 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     private EntityManager entityManager;
 
     @Override
-    @Transactional(readOnly = true)
     public RentedProduct getProductById(int id) {
         return this.entityManager.find(RentedProduct.class, id);
     }
 
     @Override
-    @Transactional(readOnly = true)
     @SuppressWarnings("unchecked")
     public Iterable<RentedProduct> getProductByAccount(int id) {
         Query query = entityManager.createQuery("SELECT id, categoryId FROM RentedProduct rentedProduct WHERE rentedProduct.renterId =:id");
