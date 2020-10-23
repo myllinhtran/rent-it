@@ -134,8 +134,8 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<RentedProduct> findRentedProductByAccount(int id) {
-        return rentedProductRepository.getProductByAccount(id);
+    public Collection<RentedProduct> findRentedProductByAccount() {
+        return rentedProductRepository.getProductByAccount();
     }
 
     @Override
