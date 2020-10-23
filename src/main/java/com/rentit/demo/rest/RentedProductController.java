@@ -17,14 +17,15 @@ public class RentedProductController {
     private PlatformService platformService;
 
     @GetMapping(path = "/rented-products/{id}")
-    public @ResponseBody RentedProduct getRentedProduct(@PathVariable("id") int id) {
+    public @ResponseBody
+    RentedProduct getRentedProduct(@PathVariable("id") int id) {
         return platformService.findRentedProductById(id);
     }
 
-    @GetMapping(path = "/rented-products")
+    @GetMapping(path = "/{id}/rented-products")
     public @ResponseBody
-    Collection<RentedProduct> getRentedProductByAccount(int id) {
-        return platformService.findRentedProductByAccount(3);
+    Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
+        return platformService.findRentedProductByAccount(id);
     }
 
 }
