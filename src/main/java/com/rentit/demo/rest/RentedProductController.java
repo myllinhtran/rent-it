@@ -21,10 +21,10 @@ public class RentedProductController {
         return platformService.findRentedProductById(id);
     }
 
-    @GetMapping(path = "/accounts/{id}/rented-products")
+    @GetMapping(path = "/rented-products")
     public @ResponseBody
-    Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
-        return platformService.findRentedProductByAccount(id);
+    Collection<RentedProduct> getRentedProductByAccount(int id) {
+        return platformService.findRentedProductByAccount(3);
     }
 
 }
