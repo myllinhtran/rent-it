@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(path = "/api/v1/accounts")
+@RequestMapping(path = "/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
 public class RentedProductController {
 
     @Autowired
     private PlatformService platformService;
 
-    @GetMapping(path = "/{id}/rentedProducts")
+    @GetMapping(path = "/rentedProducts")
     public @ResponseBody
     Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
         return platformService.findRentedProductByAccount(id);
