@@ -1,6 +1,5 @@
 package com.rentit.demo.repository.jpa.impl;
 
-
 import com.rentit.demo.model.RentedProduct;
 import com.rentit.demo.repository.jpa.JpaRentedProductRepository;
 import org.springframework.stereotype.Repository;
