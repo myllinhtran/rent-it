@@ -16,7 +16,7 @@ public class RentedProductController {
     @Autowired
     private PlatformService platformService;
 
-    @GetMapping(path = "/rented-products/{id}")
+    @GetMapping(path = "/api/v1/rented-products/{id}")
     public @ResponseBody
     RentedProduct getRentedProduct(@PathVariable("id") int id) {
         return platformService.findRentedProductById(id);
