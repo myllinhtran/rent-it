@@ -5,7 +5,7 @@ import com.rentit.demo.model.RentedProduct;
 import java.util.Collection;
 
 
-public interface JpaRentedProductsRepository {
+public interface JpaRentedProductRepository {
 
-    Collection<RentedProduct> getProductsByUser(int id);
+    Collection<RentedProduct> getProductByAccount(int id);
 }

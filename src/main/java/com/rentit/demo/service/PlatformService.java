@@ -3,6 +3,9 @@ package com.rentit.demo.service;
 import com.rentit.demo.model.Account;
 import com.rentit.demo.model.Category;
 import com.rentit.demo.model.Product;
+import com.rentit.demo.model.RentedProduct;
+
+import java.util.Collection;
 
 
 public interface PlatformService {
@@ -24,4 +27,9 @@ public interface PlatformService {
     Product createProduct(Product product);
     Product editProduct(Product product);
     void deleteProduct(int id);
+
+    RentedProduct findRentedProductById(int id);
+    Collection<RentedProduct> findRentedProductByAccount(int id);
+    Iterable<RentedProduct> findAllRentedProducts();
+    void removeRentedProduct(int id);
 }

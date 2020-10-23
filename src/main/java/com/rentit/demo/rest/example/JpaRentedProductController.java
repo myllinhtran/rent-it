@@ -1,7 +1,7 @@
 package com.rentit.demo.rest.example;
 
 import com.rentit.demo.model.RentedProduct;
-import com.rentit.demo.repository.jpa.JpaRentedProductsRepository;
+import com.rentit.demo.repository.jpa.JpaRentedProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class JpaRentedProductController {
 
     @Autowired
-    JpaRentedProductsRepository repository;
+    JpaRentedProductRepository repository;
 
     @GetMapping(path = "/myRentedProducts")
     public @ResponseBody Iterable<RentedProduct> getMyProducts() {
