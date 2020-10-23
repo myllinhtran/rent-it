@@ -20,7 +20,7 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     @SuppressWarnings("unchecked")
     public Collection<RentedProduct> getProductByAccount(int id) {
         Query query = this.entityManager.createQuery(
-                "SELECT id FROM Account account WHERE account.id =:id");
+                "SELECT firstName FROM Account account WHERE account.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
