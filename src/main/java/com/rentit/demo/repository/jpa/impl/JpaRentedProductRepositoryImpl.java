@@ -23,11 +23,10 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
 
     @Override
     @SuppressWarnings("unchecked")
-    public Collection<RentedProduct> getProductByAccount(int accountId) {
+    public Collection<RentedProduct> getProductByAccount() {
         //SELECT rentedProduct FROM RentedProduct rentedProduct WHERE rentedProduct.renterId.id= :id
         Query query = this.entityManager.createQuery(
-                "SELECT categoryId FROM RentedProduct rentedProduct join rentedProduct.categoryId category WHERE rentedProduct.categoryId.id =:id");
-        query.setParameter("id", accountId);
+                "SELECT category FROM RentedProduct rentedProduct join rentedProduct.categoryId category");
         return query.getResultList();
     }
 }
