@@ -134,7 +134,7 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<RentedProduct> findRentedProductByAccount(int id) {
+    public Iterable<RentedProduct> findRentedProductByAccount(int id) {
         return rentedProductRepository.getProductByAccount(id);
     }
 
