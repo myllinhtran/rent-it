@@ -27,4 +27,4 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
         Query query = this.entityManager.createQuery("SELECT rentedProduct FROM RentedProduct rentedProduct WHERE rentedProduct =:id");
         return query.getResultList();
     }
-}id
+}
