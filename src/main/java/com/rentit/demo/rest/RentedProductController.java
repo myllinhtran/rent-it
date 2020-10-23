@@ -9,7 +9,7 @@ import java.util.Collection;
 
 
 @RestController
-@RequestMapping(path = "/api/v1")
+@RequestMapping(path = "/api/v1/accounts")
 @CrossOrigin(origins = "http://localhost:3000")
 public class RentedProductController {
 
