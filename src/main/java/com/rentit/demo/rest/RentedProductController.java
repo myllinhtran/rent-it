@@ -5,6 +5,7 @@ import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 
 
 @RestController
@@ -20,9 +21,9 @@ public class RentedProductController {
         return platformService.findRentedProductById(id);
     }
 
-    @GetMapping(path = "/account-rented-products/{id}")
+    @GetMapping(path = "/accounts/{id}/rented-products")
     public @ResponseBody
-    Iterable<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
+    Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
         return platformService.findRentedProductByAccount(id);
     }
 

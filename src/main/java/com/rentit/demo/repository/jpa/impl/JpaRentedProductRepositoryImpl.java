@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.Collection;
 
 
 @Repository
@@ -23,8 +24,8 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
 
     @Override
     @SuppressWarnings("unchecked")
-    public Iterable<RentedProduct> getProductByAccount(int id) {
-        Query query = entityManager.createQuery("SELECT id, categoryId FROM RentedProduct rentedProduct WHERE rentedProduct.renterId =:id");
+    public Collection<RentedProduct> getProductByAccount(int id) {
+        Query query = this.entityManager.createQuery("SELECT id, categoryId FROM RentedProduct rentedProduct WHERE rentedProduct.renterId =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
