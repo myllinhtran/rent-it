@@ -24,7 +24,7 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     @Override
     @SuppressWarnings("unchecked")
     public Collection<RentedProduct> getProductByAccount(int id) {
-        Query query = this.entityManager.createQuery("SELECT rentedProduct.renter_id FROM RentedProduct rentedProduct WHERE rentedProduct.id =:id");
+        Query query = this.entityManager.createQuery("SELECT rentedProduct FROM RentedProduct rentedProduct WHERE rentedProduct.id= 1");
         return query.getResultList();
     }
 }
