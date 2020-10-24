@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.Collection;
+import java.util.List;
 
 
 @Repository
@@ -23,10 +24,9 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
 
     @Override
     @SuppressWarnings("unchecked")
-    public Collection<RentedProduct> getProductByAccount(int id) {
-        //SELECT rentedProduct FROM RentedProduct rentedProduct WHERE rentedProduct.renterId.id= :id
+    public List<RentedProduct> getProductByAccount(int id) {
         Query query = this.entityManager.createQuery(
-                "SELECT id, name FROM RentedProduct rentedProduct join rentedProduct.categoryId category on category.id = rentedProduct.categoryId.id WHERE rentedProduct.renterId.id =:id");
+                "SELECT rentedProduct.id, category.name FROM RentedProduct rentedProduct join rentedProduct.categoryId category on category.id = rentedProduct.categoryId.id WHERE rentedProduct.renterId.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
