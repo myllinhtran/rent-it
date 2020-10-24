@@ -26,7 +26,11 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     public Collection<RentedProduct> getProductByAccount(int id) {
         //SELECT rentedProduct FROM RentedProduct rentedProduct WHERE rentedProduct.renterId.id= :id
         Query query = this.entityManager.createQuery(
-                "SELECT rentedProduct, account FROM RentedProduct rentedProduct join rentedProduct.renterId account WHERE account.id =:id");
+                "SELECT rentedProduct, account, product " +
+                "FROM RentedProduct rentedProduct " +
+                "inner join rentedProduct.renterId account on rentedProduct.accountId.id = account.id " +
+                "inner join rentedProduct.productId product on rentedProduct.productId.id = product.id " +
+                "WHERE account.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
