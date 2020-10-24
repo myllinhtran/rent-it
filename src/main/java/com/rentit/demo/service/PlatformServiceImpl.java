@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
-import java.util.List;
 
 
 @Service
@@ -135,7 +134,7 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<RentedProduct> findRentedProductByAccount(int id) {
+    public Collection<RentedProduct> findRentedProductByAccount(int id) {
         return rentedProductRepository.getProductByAccount(id);
     }
 

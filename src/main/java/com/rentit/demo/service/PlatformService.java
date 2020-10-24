@@ -6,7 +6,6 @@ import com.rentit.demo.model.Product;
 import com.rentit.demo.model.RentedProduct;
 
 import java.util.Collection;
-import java.util.List;
 
 
 public interface PlatformService {
@@ -30,7 +29,7 @@ public interface PlatformService {
     void deleteProduct(int id);
 
     RentedProduct findRentedProductById(int id);
-    List<RentedProduct> findRentedProductByAccount(int id);
+    Collection<RentedProduct> findRentedProductByAccount(int id);
     Iterable<RentedProduct> findAllRentedProducts();
     void removeRentedProduct(int id);
 }
