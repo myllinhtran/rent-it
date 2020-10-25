@@ -1,6 +1,5 @@
 package com.rentit.demo.repository.jpa.impl;
 
-
 import com.rentit.demo.model.Account;
 import com.rentit.demo.repository.jpa.JpaAccountRepository;
 import org.springframework.stereotype.Repository;

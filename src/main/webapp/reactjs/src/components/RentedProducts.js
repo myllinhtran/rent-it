@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Card, Table} from 'react-bootstrap';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList} from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 
 class RentedProducts extends Component {
 
@@ -15,6 +16,7 @@ class RentedProducts extends Component {
     componentDidMount() {
 
     };
+
 
     render() {
 
@@ -37,6 +39,7 @@ class RentedProducts extends Component {
                             </tr>
                             </thead>
                             <tbody>
+
                             </tbody>
                         </Table>
                     </Card.Body>
