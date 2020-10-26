@@ -33,4 +33,9 @@ public class RentedProductController {
     Collection<RentedProduct> getRentedProductByRentee(@PathVariable("id") int id) {
         return platformService.findRentedProductByRentee(id);
     }
+
+    @DeleteMapping(path = "/rented-products/{id}")
+    public void deleteRentedProductById(@PathVariable("id") int id) {
+        platformService.removeRentedProduct(id);
+    }
 }

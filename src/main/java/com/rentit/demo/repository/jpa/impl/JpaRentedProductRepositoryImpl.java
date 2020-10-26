@@ -2,6 +2,7 @@ package com.rentit.demo.repository.jpa.impl;
 
 import com.rentit.demo.model.RentedProduct;
 import com.rentit.demo.repository.jpa.JpaRentedProductRepository;
+import org.hibernate.annotations.Subselect;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -34,6 +35,7 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public Collection<RentedProduct> getProductByRentee(int id) {
         Query query = this.entityManager.createQuery(
                 "SELECT rentedProduct, category " +

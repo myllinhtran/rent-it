@@ -151,6 +151,6 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public void removeRentedProduct(int id) {
-
+        rentedProductRepository.deleteById(id);
     }
 }

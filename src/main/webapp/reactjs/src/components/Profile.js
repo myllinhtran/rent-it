@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Account from "./Account";
 import axios from "axios";
-import {Tabs, TabPane, Card, Table} from "react-bootstrap";
-import {faList} from "@fortawesome/free-solid-svg-icons";
+import {Tabs, TabPane, Card, Table, ButtonGroup, Button} from "react-bootstrap";
+import {faList, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
@@ -22,6 +22,7 @@ class Profile extends Component {
         this.getRentingProducts = this.getRentingProducts.bind(this);
     };
 
+    productId; // ???
 
     componentDidMount() {
         const accountId = this.props.match.params.id;
@@ -66,14 +67,17 @@ class Profile extends Component {
             })
     };
 
-    productId; // ???
-
 
     handleSelect(selectedTab) {
         this.setState({
             activeTab: selectedTab,
         });
     };
+
+    /*deleteProduct = (productId) => {
+        axios.delete("")
+
+    };*/
 
     render() {
 
@@ -115,7 +119,7 @@ class Profile extends Component {
                                                 <td align={"center"}>{rentedProduct.id}</td>
                                                 <td>{rentedProduct.categoryId.name}</td>
                                                 <td>{rentedProduct.productId.name}</td>
-                                                <td align={"center"}>{rentedProduct.productId.pricePerDay}</td>
+                                                <td align={"center"}>{rentedProduct.productId.pricePerDay}€</td>
                                                 <td>{rentedProduct.productId.description}</td>
                                             </tr>
                                         )
@@ -143,6 +147,23 @@ class Profile extends Component {
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {this.state.rentingProducts.map((rentingProduct) => {
+                                        return (
+                                            <tr key={rentingProduct.id}>
+                                                <td align={"center"}>{rentingProduct.id}</td>
+                                                <td>{rentingProduct.categoryId.name}</td>
+                                                <td>{rentingProduct.productId.name}</td>
+                                                <td align={"center"}>{rentingProduct.productId.pricePerDay}€</td>
+                                                <td align={"center"}>
+                                                    <ButtonGroup>
+                                                        <Button variant={"danger"}>
+                                                            <FontAwesomeIcon icon={faTrash}/>
+                                                        </Button>
+                                                    </ButtonGroup>
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
                                     </tbody>
                                 </Table>
                             </Card.Body>
