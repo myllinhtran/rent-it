@@ -146,7 +146,7 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public Iterable<RentedProduct> findAllRentedProducts() {
-        return null;
+        return rentedProductRepository.findAll();
     }
 
     @Override

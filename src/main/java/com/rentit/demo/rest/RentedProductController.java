@@ -16,6 +16,11 @@ public class RentedProductController {
     @Autowired
     private PlatformService platformService;
 
+    @GetMapping(path = "/rented-products")
+    public @ResponseBody Iterable<RentedProduct> getRentedProducts() {
+        return platformService.findAllRentedProducts();
+    }
+
     @GetMapping(path = "/rented-products/{id}")
     public @ResponseBody
     RentedProduct getRentedProduct(@PathVariable("id") int id) {

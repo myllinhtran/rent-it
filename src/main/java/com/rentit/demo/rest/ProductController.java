@@ -18,7 +18,7 @@ public class ProductController {
     @GetMapping(path = "/products")
     public @ResponseBody
     Iterable<Product> getAllProducts() {
-        return platformService.findAllProducts(); // This returns a JSON or XML with the renters
+        return platformService.findAllProducts();
     }
 
     @GetMapping(path = "/products/{id}")
