@@ -17,8 +17,9 @@ class Profile extends Component {
         };
 
         this.handleSelect = this.handleSelect.bind(this);
-        this.getRentedProducts = this.getRentedProducts.bind(this);
         this.findAccountById = this.findAccountById.bind(this);
+        this.getRentedProducts = this.getRentedProducts.bind(this);
+        this.getRentingProducts = this.getRentingProducts.bind(this);
     };
 
 
@@ -27,7 +28,17 @@ class Profile extends Component {
         if (accountId) {
             this.findAccountById(accountId);
             this.getRentedProducts(accountId);
+            this.getRentingProducts(accountId);
         }
+    };
+
+    getRentingProducts = (accountId) => {
+        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/accounts/" + accountId + "/renting-products")
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({rentingProducts: data});
+                console.log(data);
+            })
     };
 
     getRentedProducts = (accountId) => {

@@ -21,14 +21,24 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
         return this.entityManager.find(RentedProduct.class, id);
     }
 
+
     @Override
     @SuppressWarnings("unchecked")
-    public Collection<RentedProduct> getProductByAccount(int id) {
-        //SELECT rentedProduct FROM RentedProduct rentedProduct WHERE rentedProduct.renterId.id= :id
+    public Collection<RentedProduct> getProductByRenter(int id) {
         Query query = this.entityManager.createQuery(
                 "SELECT rentedProduct, category " +
                 "FROM RentedProduct rentedProduct join rentedProduct.categoryId category on category.id = rentedProduct.categoryId.id " +
                 "WHERE rentedProduct.renterId.id =:id");
+        query.setParameter("id", id);
+        return query.getResultList();
+    }
+
+    @Override
+    public Collection<RentedProduct> getProductByRentee(int id) {
+        Query query = this.entityManager.createQuery(
+                "SELECT rentedProduct, category " +
+                "FROM RentedProduct rentedProduct join rentedProduct.categoryId category on category.id = rentedProduct.categoryId.id " +
+                "WHERE rentedProduct.renteeId.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }

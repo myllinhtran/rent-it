@@ -22,9 +22,15 @@ public class RentedProductController {
         return platformService.findRentedProductById(id);
     }
 
+    @GetMapping(path = "/accounts/{id}/renting-products")
+    public @ResponseBody
+    Collection<RentedProduct> getRentedProductByRenter(@PathVariable("id") int id) {
+        return platformService.findRentedProductByRenter(id);
+    }
+
     @GetMapping(path = "/accounts/{id}/rented-products")
     public @ResponseBody
-    Collection<RentedProduct> getRentedProductByAccount(@PathVariable("id") int id) {
-        return platformService.findRentedProductByAccount(id);
+    Collection<RentedProduct> getRentedProductByRentee(@PathVariable("id") int id) {
+        return platformService.findRentedProductByRentee(id);
     }
 }

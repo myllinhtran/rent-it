@@ -9,5 +9,7 @@ public interface JpaRentedProductRepository {
 
     RentedProduct getProductById(int id);
 
-    Collection<RentedProduct> getProductByAccount(int id);
+    Collection<RentedProduct> getProductByRenter(int id);
+
+    Collection<RentedProduct> getProductByRentee(int id);
 }
