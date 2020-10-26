@@ -16,11 +16,12 @@ class RenterList extends Component {
         };
 
         this.getRenters = this.getRenters.bind(this);
-    }
+        this.deleteRenter = this.deleteRenter.bind(this);
+    };
 
     componentDidMount() {
         this.getRenters();
-    }
+    };
 
     getRenters() {
         axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/accounts")
@@ -28,7 +29,7 @@ class RenterList extends Component {
             .then((data) => {
                 this.setState({renters: data});
             });
-    }
+    };
 
     deleteRenter = (renterId) => {
         axios.delete("https://safe-sierra-04090.herokuapp.com/api/v1/accounts/" + renterId)
@@ -91,8 +92,7 @@ class RenterList extends Component {
                                                 </ButtonGroup>
                                             </td>
                                         </tr>
-                                    ))
-                            }
+                                    ))}
                             </tbody>
                         </Table>
                     </Card.Body>
