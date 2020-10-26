@@ -23,6 +23,7 @@
 --     constraint fk_product
 --         foreign key (product_id) references rentit.products (id)
 -- );
+--
 -- create table rentit.renters
 -- (
 --     id         integer generated always as identity primary key,
