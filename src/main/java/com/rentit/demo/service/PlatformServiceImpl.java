@@ -73,6 +73,7 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Category findCategoryByName(String name) {
         return categoryRepository.findCategoryByName(name);
     }

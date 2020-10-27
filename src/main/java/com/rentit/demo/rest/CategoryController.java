@@ -18,7 +18,7 @@ public class CategoryController {
     @GetMapping(path = "/categories")
     public @ResponseBody
     Iterable<Category> getAllCategories() {
-        return platformService.findAllCategories(); // This returns a JSON or XML with the renters
+        return platformService.findAllCategories();
     }
 
     @GetMapping(path = "/categories/{id}")
