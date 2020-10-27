@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Repository
 public class JpaCategoryRepositoryImpl implements JpaCategoryRepository {
@@ -20,6 +21,8 @@ public class JpaCategoryRepositoryImpl implements JpaCategoryRepository {
 
     @Override
     public Category findCategoryByName(String name) {
-        return entityManager.find(Category.class, name);
+        Query query = this.entityManager.createQuery("SELECT category FROM Category category WHERE category.name =:name");
+        query.setParameter("name", name);
+        return ( Category ) query.getSingleResult();
     }
 }
