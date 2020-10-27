@@ -73,6 +73,11 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    public Category findCategoryByName(String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Iterable<Category> findAllCategories() {
         return categoryRepository.findAll();

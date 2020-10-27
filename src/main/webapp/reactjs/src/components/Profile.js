@@ -20,6 +20,7 @@ class Profile extends Component {
         this.findAccountById = this.findAccountById.bind(this);
         this.getRentedProducts = this.getRentedProducts.bind(this);
         this.getRentingProducts = this.getRentingProducts.bind(this);
+        this.deleteProduct = this.deleteProduct.bind(this);
     };
 
     productId; // ???
@@ -74,10 +75,10 @@ class Profile extends Component {
         });
     };
 
-    /*deleteProduct = (productId) => {
-        axios.delete("")
-
-    };*/
+    deleteProduct = (productId) => {
+        axios.delete("https://safe-sierra-04090.herokuapp.com/api/v1/rented-products/" + productId)
+            .then(response => console.log(response.data))
+    };
 
     render() {
 
@@ -156,7 +157,10 @@ class Profile extends Component {
                                                 <td align={"center"}>{rentingProduct.productId.pricePerDay}€</td>
                                                 <td align={"center"}>
                                                     <ButtonGroup>
-                                                        <Button variant={"danger"}>
+                                                        <Button
+                                                            variant={"danger"}
+                                                            onClick={this.deleteProduct.bind(this, rentingProduct.id)}
+                                                        >
                                                             <FontAwesomeIcon icon={faTrash}/>
                                                         </Button>
                                                     </ButtonGroup>

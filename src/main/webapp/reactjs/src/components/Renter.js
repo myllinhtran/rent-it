@@ -5,7 +5,7 @@ import {faList, faPlusSquare, faSave, faUndo} from "@fortawesome/free-solid-svg-
 import axios from 'axios';
 import MyToast from "./MyToast";
 
-class Renters extends Component {
+class Renter extends Component {
 
     constructor(props) {
         super(props);
@@ -120,7 +120,7 @@ class Renters extends Component {
                              message={this.state.id ? "Renter Updated Successfully." : "Renter Saved Successfully."}
                              type={"success"}/>
                 </div>
-                <Card className={"border border-dark bg-dark text-white"}>
+                <Card>
                     <Card.Header>
                         <FontAwesomeIcon
                             icon={this.state.id ? faSave : faPlusSquare}/> {this.state.id ? "Update Renter" : "Add New Renter"}
@@ -134,7 +134,6 @@ class Renters extends Component {
                                     <Form.Control required
                                                   type="firstName" name={"firstName"}
                                                   value={firstName} onChange={this.renterChange}
-                                                  className="bg-dark text-white"
                                                   placeholder="Enter your first name"/>
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formEmail">
@@ -142,7 +141,6 @@ class Renters extends Component {
                                     <Form.Control required
                                                   type="email" name={"email"}
                                                   value={email} onChange={this.renterChange}
-                                                  className="bg-dark text-white"
                                                   placeholder="Enter your email"/>
                                 </Form.Group>
                             </Form.Row>
@@ -152,7 +150,6 @@ class Renters extends Component {
                                     <Form.Control required
                                                   type="lastName" name={"lastName"}
                                                   value={lastName} onChange={this.renterChange}
-                                                  className="bg-dark text-white"
                                                   placeholder="Enter your last name"/>
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formMobile">
@@ -160,21 +157,20 @@ class Renters extends Component {
                                     <Form.Control required
                                                   type="mobile" name={"mobile"}
                                                   value={mobile} onChange={this.renterChange}
-                                                  className="bg-dark text-white"
                                                   placeholder="Enter your mobile"/>
                                 </Form.Group>
                             </Form.Row>
                         </Card.Body>
                         <Card.Footer style={{"textAlign": "right"}}>
-                            <Button size="sm" variant="success" type="submit">
+                            <Button variant="success" type="submit">
                                 <FontAwesomeIcon icon={faSave}/> {this.state.id ? "Update" : "Save"}
                             </Button>{' '}
-                            <Button size="sm" variant="info" type="reset">
+                            <Button variant="info" type="reset">
                                 <FontAwesomeIcon icon={faUndo}/> Reset
                             </Button>{' '}
-                            <Button size="sm" variant="info" type="button" onClick={this.renterList.bind()}>
+                            <Button variant="info" type="button" onClick={this.renterList.bind()}>
                                 <FontAwesomeIcon icon={faList}/> Renter List
-                            </Button>
+                            </Button>{' '}
                         </Card.Footer>
                     </Form>
                 </Card>
@@ -183,4 +179,4 @@ class Renters extends Component {
     }
 }
 
-export default Renters;
+export default Renter;

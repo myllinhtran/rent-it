@@ -17,4 +17,9 @@ public class JpaCategoryRepositoryImpl implements JpaCategoryRepository {
     public Category findCategoryById(int id) {
         return this.entityManager.find(Category.class, id);
     }
+
+    @Override
+    public Category findCategoryByName(String name) {
+        return entityManager.find(Category.class, name);
+    }
 }

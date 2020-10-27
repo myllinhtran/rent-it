@@ -17,6 +17,7 @@ public interface PlatformService {
     void deleteAccount(int id);
 
     Category findCategoryById(int id);
+    Category findCategoryByName(String name);
     Iterable<Category> findAllCategories();
     Category createCategory(Category category);
     Category editCategory(Category category);
