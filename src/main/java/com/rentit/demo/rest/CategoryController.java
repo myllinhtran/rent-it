@@ -27,6 +27,7 @@ public class CategoryController {
 
     @GetMapping(path = "/categories/category")
     public @ResponseBody Category getCategoryByName(@RequestParam String name) {
+        name.toUpperCase();
         return platformService.findCategoryByName(name);
     }
 
