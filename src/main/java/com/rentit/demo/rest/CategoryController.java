@@ -16,18 +16,17 @@ public class CategoryController {
     private PlatformService platformService;
 
     @GetMapping(path = "/categories")
-    public @ResponseBody
-    Iterable<Category> getAllCategories() {
+    public @ResponseBody Iterable<Category> getAllCategories() {
         return platformService.findAllCategories();
     }
 
     @GetMapping(path = "/categories/{id}")
-    public Category getCategory(@PathVariable("id") Integer id) {
+    public @ResponseBody Category getCategory(@PathVariable("id") Integer id) {
         return platformService.findCategoryById(id);
     }
 
-    @GetMapping(path = "/categories")
-    public String getCategoryByName(@RequestParam String category) {
+    @GetMapping(path = "/categories/test")
+    public @ResponseBody String getCategoryByName(@RequestParam String category) {
         return "Category: " + category;
     }
 
