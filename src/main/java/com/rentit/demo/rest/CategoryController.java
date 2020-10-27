@@ -26,8 +26,8 @@ public class CategoryController {
     }
 
     @GetMapping(path = "/categories/category")
-    public @ResponseBody String getCategoryByName(@RequestParam String name) {
-        return "Category: " + name;
+    public @ResponseBody Category getCategoryByName(@RequestParam String name) {
+        return platformService.findCategoryByName(name);
     }
 
     @PostMapping(path = "/categories")
