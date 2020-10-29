@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.List;
 
 
 @Service
@@ -110,8 +111,8 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     @Transactional(readOnly = true)
-    public Iterable<Product> findAllProducts() {
-        return productRepository.findAll();
+    public List<Product> findAllProducts() {
+        return ( List<Product> ) productRepository.findAll();
     }
 
     @Override

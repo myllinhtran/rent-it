@@ -3,6 +3,7 @@ package com.rentit.demo.model;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Table(name = "categories", schema = "Rentit")
 public class Category {
@@ -15,8 +16,13 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "categoryId")
+    @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL)
     private List<Product> products;
+
+    public Category(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
