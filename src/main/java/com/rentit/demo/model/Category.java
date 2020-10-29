@@ -15,7 +15,7 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId")
+    @OneToMany(mappedBy = "categoryId")
     private Set<Product> products;
 
     public Integer getId() {
