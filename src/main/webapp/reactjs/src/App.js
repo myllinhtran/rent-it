@@ -12,6 +12,7 @@ import ProductList from "./components/ProductList";
 import Product from "./components/Product";
 import ProductDetail from "./components/ProductDetail";
 import Profile from "./components/Profile";
+import TestProduct from "./components/TestProduct";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
                             <Route path="/renters/add" exact component={Renter}/>
                             <Route path="/renters/edit/:id" exact component={Renter}/>
                             <Route path="/products" exact component={ProductList}/>
-                            <Route path="/products/add" exact component={Product}/>
+                            <Route path="/products/add" exact component={TestProduct}/>
                             <Route path="/products/edit/:id" exact component={Product}/>
                             <Route path="/products/detail/:id" exact component={ProductDetail}/>
                             <Route path="/profile/:id" exact component={Profile}/>

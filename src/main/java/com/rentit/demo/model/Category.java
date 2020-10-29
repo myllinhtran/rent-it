@@ -1,6 +1,7 @@
 package com.rentit.demo.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "categories", schema = "Rentit")
@@ -13,6 +14,9 @@ public class Category {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId")
+    private Set<Product> products;
 
     public Integer getId() {
         return id;
@@ -30,11 +34,20 @@ public class Category {
         this.name = name;
     }
 
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public String toString() {
-        return "Category {" +
+        return "Category{" +
                "id=" + id +
                ", name='" + name + '\'' +
+               ", products=" + products +
                '}';
     }
 }
