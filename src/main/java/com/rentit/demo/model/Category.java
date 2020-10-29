@@ -1,7 +1,7 @@
 package com.rentit.demo.model;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "categories", schema = "Rentit")
@@ -16,7 +16,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "categoryId")
-    private Set<Product> products;
+    private List<Product> products;
 
     public Integer getId() {
         return id;
@@ -34,11 +34,11 @@ public class Category {
         this.name = name;
     }
 
-    public Set<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 
