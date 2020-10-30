@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
-import java.util.List;
 
 
 @Service
@@ -68,96 +67,84 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Category findCategoryById(int id) {
-        return categoryRepository.findCategoryById(id);
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Category findCategoryByName(String name) {
-        return categoryRepository.findCategoryByName(name);
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Iterable<Category> findAllCategories() {
-        return categoryRepository.findAll();
+        return null;
     }
 
     @Override
-    @Transactional
     public Category createCategory(Category category) {
-        return categoryRepository.save(category);
+        return null;
     }
 
     @Override
-    @Transactional
     public Category editCategory(Category category) {
-        return categoryRepository.save(category);
+        return null;
     }
 
     @Override
-    @Transactional
     public void deleteCategory(int id) {
-        categoryRepository.deleteById(id);
+
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Product findProductById(int id) {
-        return productRepository.findProductById(id);
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Collection<Product> findAllProducts() {
-        return productRepository.findAllProducts();
+        return null;
     }
 
     @Override
-    @Transactional
     public Product createProduct(Product product) {
-        return productRepository.save(product);
+        return null;
     }
 
     @Override
-    @Transactional
     public Product editProduct(Product product) {
-        return productRepository.save(product);
+        return null;
     }
 
     @Override
-    @Transactional
     public void deleteProduct(int id) {
-        productRepository.deleteById(id);
+
     }
 
     @Override
-    @Transactional(readOnly = true)
     public RentedProduct findRentedProductById(int id) {
-        return rentedProductRepository.getProductById(id);
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Collection<RentedProduct> findRentedProductByRenter(int id) {
-        return rentedProductRepository.getProductByRenter(id);
+        return null;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Collection<RentedProduct> findRentedProductByRentee(int id) {
-        return rentedProductRepository.getProductByRentee(id);
+        return null;
     }
 
     @Override
     public Iterable<RentedProduct> findAllRentedProducts() {
-        return rentedProductRepository.findAll();
+        return null;
     }
 
     @Override
     public void removeRentedProduct(int id) {
-        rentedProductRepository.deleteById(id);
+
     }
+
+
 }

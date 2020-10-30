@@ -1,5 +1,7 @@
 package com.rentit.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,8 +21,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Category category;
 
     public Integer getId() {

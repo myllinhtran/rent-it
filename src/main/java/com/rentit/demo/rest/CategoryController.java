@@ -1,49 +1,31 @@
 package com.rentit.demo.rest;
 
 import com.rentit.demo.model.Category;
-import com.rentit.demo.service.PlatformService;
+import com.rentit.demo.repository.CategoryRepository;
+import com.rentit.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.MessageFormat;
+import java.util.Collection;
+
 
 @RestController
 @RequestMapping(path = "/api/v1")
 @CrossOrigin(origins = "http://localhost:3000")
 public class CategoryController {
 
+    private final CategoryRepository categoryRepository;
+    private final ProductRepository productRepository;
+
     @Autowired
-    private PlatformService platformService;
+    public CategoryController(CategoryRepository categoryRepository, ProductRepository productRepository) {
+        this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
+    }
 
     @GetMapping(path = "/categories")
-    public @ResponseBody Iterable<Category> getAllCategories() {
-        return platformService.findAllCategories();
-    }
-
-    @GetMapping(path = "/categories/{id}")
-    public @ResponseBody Category getCategory(@PathVariable("id") Integer id) {
-        return platformService.findCategoryById(id);
-    }
-
-    @GetMapping(path = "/categories/category")
-    public @ResponseBody Category getCategoryByName(@RequestParam String name) {
-        return platformService.findCategoryByName(name);
-    }
-
-    @PostMapping(path = "/categories")
-    public Category createCategory(@RequestBody Category category) {
-        return platformService.createCategory(category);
-    }
-
-    @PutMapping(path = "/categories")
-    public Category updateRenter(@RequestBody Category category) {
-        return platformService.editCategory(category);
-    }
-
-    @DeleteMapping(path = "/categories/{id}")
-    @ResponseBody
-    public String deleteCategory(@PathVariable("id") Integer id) {
-        platformService.deleteCategory(id);
-        return MessageFormat.format("Category with ID {0} has been deleted.", id);
+    public ResponseEntity<Collection<Category>> getAll() {
+        return ResponseEntity.ok(categoryRepository.findAll());
     }
 }

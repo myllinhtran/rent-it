@@ -1,12 +1,8 @@
 package com.rentit.demo.rest;
 
-import com.rentit.demo.model.Product;
-import com.rentit.demo.service.PlatformService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.rentit.demo.repository.CategoryRepository;
+import com.rentit.demo.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.MessageFormat;
-import java.util.Collection;
 
 
 @RestController
@@ -14,34 +10,11 @@ import java.util.Collection;
 @CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
-    @Autowired
-    private PlatformService platformService;
-
-    @GetMapping(path = "/products")
-    @ResponseBody
-    public Iterable<Product> getAllProducts() {
-        return platformService.findAllProducts();
-    }
-
-    @GetMapping(path = "/products/{id}")
-    public Product getProduct(@PathVariable("id") Integer id) {
-        return platformService.findProductById(id);
-    }
-
-    @PostMapping(path = "/products")
-    public Product createProduct(@RequestBody Product product) {
-        return platformService.createProduct(product);
-    }
-
-    @PutMapping(path = "/products")
-    public Product updateProduct(@RequestBody Product product) {
-        return platformService.editProduct(product);
-    }
-
-    @DeleteMapping(path = "/products/{id}")
-    @ResponseBody
-    public String deleteProduct(@PathVariable("id") Integer id) throws Exception {
-        platformService.deleteProduct(id);
-        return MessageFormat.format("Product with ID {0} has been deleted.", id);
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    
+    public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
+        this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
     }
 }
