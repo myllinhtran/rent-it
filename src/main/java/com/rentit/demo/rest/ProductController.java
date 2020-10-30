@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.MessageFormat;
-import java.util.List;
+import java.util.Collection;
+
 
 @RestController
 @RequestMapping(path = "/api/v1")
@@ -18,7 +19,7 @@ public class ProductController {
 
     @GetMapping(path = "/products")
     public @ResponseBody
-    List<Product> getAllProducts() {
+    Collection<Product> getAllProducts() {
         return platformService.findAllProducts();
     }
 
