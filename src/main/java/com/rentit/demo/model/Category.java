@@ -2,6 +2,7 @@ package com.rentit.demo.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -17,7 +18,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL)
-    private List<Product> products;
+    private Set<Product> products;
 
     public Category(Integer id, String name) {
         this.id = id;
@@ -40,11 +41,11 @@ public class Category {
         this.name = name;
     }
 
-    public List<Product> getProducts() {
+    public Set<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(Set<Product> products) {
         this.products = products;
     }
 
