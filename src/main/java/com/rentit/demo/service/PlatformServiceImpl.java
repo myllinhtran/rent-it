@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.Optional;
 
 
 @Service
@@ -67,8 +68,8 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    public Category findCategoryById(int id) {
-        return null;
+    public Optional<Category> findCategoryById(int id) {
+        return categoryRepository.findById(id);
     }
 
     @Override
@@ -77,8 +78,8 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    public Iterable<Category> findAllCategories() {
-        return null;
+    public Collection<Category> findAllCategories() {
+        return categoryRepository.findAll();
     }
 
     @Override

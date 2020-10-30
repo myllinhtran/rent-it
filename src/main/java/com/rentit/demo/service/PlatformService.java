@@ -6,7 +6,7 @@ import com.rentit.demo.model.Product;
 import com.rentit.demo.model.RentedProduct;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.Optional;
 
 
 public interface PlatformService {
@@ -17,9 +17,9 @@ public interface PlatformService {
     Account editAccount(Account account);
     void deleteAccount(int id);
 
-    Category findCategoryById(int id);
+    Optional<Category> findCategoryById(int id);
     Category findCategoryByName(String name);
-    Iterable<Category> findAllCategories();
+    Collection<Category> findAllCategories();
     Category createCategory(Category category);
     Category editCategory(Category category);
     void deleteCategory(int id);
