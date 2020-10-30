@@ -84,7 +84,7 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public Category createCategory(Category category) {
-        return null;
+        return categoryRepository.save(category);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public Product createProduct(Product product) {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override

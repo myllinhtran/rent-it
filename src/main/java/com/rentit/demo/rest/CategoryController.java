@@ -6,6 +6,7 @@ import com.rentit.demo.repository.ProductRepository;
 import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -34,5 +35,10 @@ public class CategoryController {
         else {
             return ResponseEntity.ok(optionalCategory.get());
         }
+    }
+
+    @PostMapping(path = "/categories")
+    public Category create(@RequestBody Category category) {
+        return platformService.createCategory(category);
     }
 }
