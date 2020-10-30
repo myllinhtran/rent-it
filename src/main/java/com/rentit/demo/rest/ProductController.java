@@ -18,9 +18,8 @@ public class ProductController {
     private PlatformService platformService;
 
     @GetMapping(path = "/products")
-    public @ResponseBody
-    Collection<Product> getAllProducts() {
-        return platformService.findAllProducts();
+    public @ResponseBody Collection<Product> getAllProducts() {
+        return this.platformService.findAllProducts();
     }
 
     @GetMapping(path = "/products/{id}")
