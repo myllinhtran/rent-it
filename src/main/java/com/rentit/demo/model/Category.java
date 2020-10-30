@@ -1,7 +1,6 @@
 package com.rentit.demo.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 
@@ -17,7 +16,7 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "categoryId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Product> products;
 
     public Category(Integer id, String name) {

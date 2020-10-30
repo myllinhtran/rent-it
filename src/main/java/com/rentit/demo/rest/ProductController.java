@@ -19,7 +19,7 @@ public class ProductController {
 
     @GetMapping(path = "/products")
     @ResponseBody
-    public Collection<Product> getAllProducts() {
+    public Iterable<Product> getAllProducts() {
         return platformService.findAllProducts();
     }
 

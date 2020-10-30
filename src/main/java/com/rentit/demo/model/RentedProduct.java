@@ -16,19 +16,19 @@ public class RentedProduct {
 
     @OneToOne
     @JoinColumn(name = "category_id")
-    private Category categoryId;
+    private Category category;
 
     @OneToOne
     @JoinColumn(name = "product_id")
-    private Product productId;
+    private Product product;
 
     @OneToOne
     @JoinColumn(name = "renter_id")
-    private Account renterId;
+    private Account renter;
 
     @OneToOne
     @JoinColumn(name = "rentee_id")
-    private Account renteeId;
+    private Account rentee;
 
     @Column(name = "address")
     private String address;
@@ -49,36 +49,36 @@ public class RentedProduct {
         this.id = id;
     }
 
-    public Category getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public Product getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(Product productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public Account getRenterId() {
-        return renterId;
+    public Account getRenter() {
+        return renter;
     }
 
-    public void setRenterId(Account renterId) {
-        this.renterId = renterId;
+    public void setRenter(Account renter) {
+        this.renter = renter;
     }
 
-    public Account getRenteeId() {
-        return renteeId;
+    public Account getRentee() {
+        return rentee;
     }
 
-    public void setRenteeId(Account renteeId) {
-        this.renteeId = renteeId;
+    public void setRentee(Account rentee) {
+        this.rentee = rentee;
     }
 
     public String getAddress() {
@@ -109,10 +109,10 @@ public class RentedProduct {
     public String toString() {
         return "RentedProduct {" +
                "id=" + id +
-               ", categoryId=" + categoryId +
-               ", productId=" + productId +
-               ", renterId=" + renterId +
-               ", renteeId=" + renteeId +
+               ", categoryId=" + category +
+               ", productId=" + product +
+               ", renterId=" + renter +
+               ", renteeId=" + rentee +
                ", address='" + address + '\'' +
                ", startDate=" + startDate +
                ", endDate=" + endDate +

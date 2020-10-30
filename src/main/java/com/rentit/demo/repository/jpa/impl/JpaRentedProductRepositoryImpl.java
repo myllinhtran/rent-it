@@ -28,8 +28,8 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     public Collection<RentedProduct> getProductByRenter(int id) {
         Query query = this.entityManager.createQuery(
                 "SELECT rentedProduct, category " +
-                "FROM RentedProduct rentedProduct join rentedProduct.categoryId category on category.id = rentedProduct.categoryId.id " +
-                "WHERE rentedProduct.renterId.id =:id");
+                "FROM RentedProduct rentedProduct join rentedProduct.category category on category.id = rentedProduct.category.id " +
+                "WHERE rentedProduct.renter.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }
@@ -39,8 +39,8 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     public Collection<RentedProduct> getProductByRentee(int id) {
         Query query = this.entityManager.createQuery(
                 "SELECT rentedProduct, category " +
-                "FROM RentedProduct rentedProduct join rentedProduct.categoryId category on category.id = rentedProduct.categoryId.id " +
-                "WHERE rentedProduct.renteeId.id =:id");
+                "FROM RentedProduct rentedProduct join rentedProduct.category category on category.id = rentedProduct.category.id " +
+                "WHERE rentedProduct.rentee.id =:id");
         query.setParameter("id", id);
         return query.getResultList();
     }

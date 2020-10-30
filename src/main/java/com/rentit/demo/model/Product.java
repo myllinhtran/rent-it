@@ -10,10 +10,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category categoryId;
-
     @Column(name = "name")
     private String name;
 
@@ -23,6 +19,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Integer getId() {
         return id;
@@ -32,12 +31,12 @@ public class Product {
         this.id = id;
     }
 
-    public Category getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getName() {
@@ -68,7 +67,7 @@ public class Product {
     public String toString() {
         return "Product {" +
                "id=" + id +
-               ", categoryId=" + categoryId +
+               ", categoryId=" + category +
                ", name='" + name + '\'' +
                ", pricePerDay=" + pricePerDay +
                ", description='" + description + '\'' +
