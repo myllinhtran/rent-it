@@ -1,14 +1,13 @@
 package com.rentit.demo.rest;
 
 import com.rentit.demo.model.Category;
-import com.rentit.demo.repository.CategoryRepository;
-import com.rentit.demo.repository.ProductRepository;
+import com.rentit.demo.model.Product;
 import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -22,12 +21,12 @@ public class CategoryController {
     private PlatformService platformService;
 
     @GetMapping(path = "/categories")
-    public ResponseEntity<Collection<Category>> getAll() {
+    public ResponseEntity<Collection<Category>> getAllCategories() {
         return ResponseEntity.ok(platformService.findAllCategories());
     }
 
     @GetMapping(path = "/categories/{id}")
-    public ResponseEntity<Category> getById(@PathVariable("id") int id) {
+    public ResponseEntity<Category> getCategoryById(@PathVariable("id") int id) {
         Optional<Category> optionalCategory = platformService.findCategoryById(id);
         if (optionalCategory.isEmpty()) {
             return ResponseEntity.unprocessableEntity().build();
@@ -38,7 +37,19 @@ public class CategoryController {
     }
 
     @PostMapping(path = "/categories")
-    public Category create(@RequestBody Category category) {
+    public Category createCategory(@RequestBody Category category) {
         return platformService.createCategory(category);
+    }
+
+    @PutMapping(path = "/categories")
+    public Category updateCategory(@RequestBody Category category) {
+        return platformService.editCategory(category);
+    }
+
+    @DeleteMapping(path = "/categories/{id}")
+    @ResponseBody
+    public String deleteCategory(@PathVariable("id") int id) {
+        platformService.deleteCategory(id);
+        return MessageFormat.format("Category with ID {0} has been deleted.", id);
     }
 }

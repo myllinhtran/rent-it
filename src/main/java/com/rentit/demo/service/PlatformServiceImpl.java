@@ -89,12 +89,12 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public Category editCategory(Category category) {
-        return null;
+        return categoryRepository.save(category);
     }
 
     @Override
     public void deleteCategory(int id) {
-
+        categoryRepository.deleteById(id);
     }
 
     @Override
