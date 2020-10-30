@@ -23,7 +23,7 @@ public class JpaProductRepositoryImpl implements JpaProductRepository {
     @Override
     @SuppressWarnings("unchecked")
     public Collection<Product> findAllProducts() {
-        Query query = this.entityManager.createQuery("SELECT product FROM Product product");
+        Query query = this.entityManager.createQuery("SELECT product FROM Product product join product.categoryId category on category.id = product.categoryId.id");
         return query.getResultList();
     }
 }
