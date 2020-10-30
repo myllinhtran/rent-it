@@ -111,8 +111,8 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Product> findAllProducts() {
-        return ( List<Product> ) productRepository.findAll();
+    public Collection<Product> findAllProducts() {
+        return productRepository.findAllProducts();
     }
 
     @Override

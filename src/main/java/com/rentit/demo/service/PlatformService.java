@@ -25,7 +25,7 @@ public interface PlatformService {
     void deleteCategory(int id);
 
     Product findProductById(int id);
-    List<Product> findAllProducts();
+    Collection<Product> findAllProducts();
     Product createProduct(Product product);
     Product editProduct(Product product);
     void deleteProduct(int id);
