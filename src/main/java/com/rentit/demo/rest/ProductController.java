@@ -3,10 +3,13 @@ package com.rentit.demo.rest;
 import com.rentit.demo.model.Product;
 import com.rentit.demo.repository.CategoryRepository;
 import com.rentit.demo.repository.ProductRepository;
+import com.rentit.demo.service.PlatformService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 
 
 @RestController
@@ -14,16 +17,22 @@ import java.util.Collection;
 @CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
-    private final ProductRepository productRepository;
-    private final CategoryRepository categoryRepository;
-
-    public ProductController(ProductRepository productRepository, CategoryRepository categoryRepository) {
-        this.productRepository = productRepository;
-        this.categoryRepository = categoryRepository;
-    }
+    @Autowired
+    private PlatformService platformService;
 
     @GetMapping(path = "/products")
     public ResponseEntity<Collection<Product>> getAll() {
-        return ResponseEntity.ok(productRepository.findAll());
+        return ResponseEntity.ok(platformService.findAllProducts());
+    }
+
+    @GetMapping(path = "/products/{id}")
+    public ResponseEntity<Product> getById(@PathVariable("id") int id) {
+        Optional<Product> optionalProduct = platformService.findProductById(id);
+        if (optionalProduct.isEmpty()) {
+            return ResponseEntity.unprocessableEntity().build();
+        }
+        else {
+            return ResponseEntity.ok(optionalProduct.get());
+        }
     }
 }

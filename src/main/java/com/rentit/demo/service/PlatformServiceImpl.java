@@ -98,13 +98,13 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    public Product findProductById(int id) {
-        return null;
+    public Optional<Product> findProductById(int id) {
+        return productRepository.findById(id);
     }
 
     @Override
     public Collection<Product> findAllProducts() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
