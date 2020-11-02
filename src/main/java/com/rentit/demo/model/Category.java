@@ -21,8 +21,6 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    @Transient
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Set<Product> products = new HashSet<>();
 
 
