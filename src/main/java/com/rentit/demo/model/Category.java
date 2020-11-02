@@ -1,5 +1,6 @@
 package com.rentit.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -20,8 +21,10 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Set<Product> products = new HashSet<>();
+
 
 
     public Integer getId() {
