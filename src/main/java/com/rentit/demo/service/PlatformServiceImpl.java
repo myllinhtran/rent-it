@@ -104,7 +104,7 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public Collection<Product> findAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findAllProducts();
     }
 
     @Override

@@ -22,8 +22,8 @@ public class ProductController {
     private PlatformService platformService;
 
     @GetMapping(path = "/products")
-    public ResponseEntity<Collection<Product>> getAll() {
-        return ResponseEntity.ok(platformService.findAllProducts());
+    public Collection<Product> getAll() {
+        return platformService.findAllProducts();
     }
 
     @GetMapping(path = "/products/{id}")

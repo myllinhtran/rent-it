@@ -24,7 +24,6 @@ class ProductDetail extends Component {
                 if (response.data != null) {
                     this.setState({
                         id: response.data.id,
-                        category: response.data.categoryId.name,
                         name: response.data.name,
                         pricePerDay: response.data.pricePerDay,
                         description: response.data.description
@@ -35,12 +34,12 @@ class ProductDetail extends Component {
 
     render() {
 
-        const {category, name, description, pricePerDay} = this.state;
+        const {name, description, pricePerDay} = this.state;
 
         return (
             <div>
                 <Card className="border border-grey bg-light text-dark">
-                    <Card.Header>{category}</Card.Header>
+                    <Card.Header></Card.Header>
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Row>

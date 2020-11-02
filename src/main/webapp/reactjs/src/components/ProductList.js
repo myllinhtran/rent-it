@@ -17,7 +17,6 @@ class ProductList extends Component {
     products = {
         id: '',
         name: '',
-        categoryId: '',
         pricePerDay: '',
         description: ''
     };
@@ -50,7 +49,7 @@ class ProductList extends Component {
                                 </Col>
                                 <Col>
                                     <Card.Body>
-                                        <Card.Title>{product.name} [ {product.categoryId.name} ]</Card.Title>
+                                        <Card.Title>{product.name}</Card.Title>
                                         <Card.Text>
                                             {product.description}
                                         </Card.Text>
