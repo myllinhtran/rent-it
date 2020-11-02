@@ -42,12 +42,12 @@ public class ProductController {
         return platformService.createProduct(product);
     }
 
-    @PutMapping(path = "/categories")
+    @PutMapping(path = "/products")
     public Product updateProduct(@RequestBody Product product) {
         return platformService.editProduct(product);
     }
 
-    @DeleteMapping(path = "/categories/{id}")
+    @DeleteMapping(path = "/products/{id}")
     public String deleteProduct(@PathVariable("id") int id) {
         platformService.deleteProduct(id);
         return MessageFormat.format("Product with ID {0} has been deleted.", id);
