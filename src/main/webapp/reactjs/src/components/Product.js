@@ -16,7 +16,6 @@ class TestProduct extends Component {
         };
 
         this.fetchCategories = this.fetchCategories.bind(this);
-        this.fetchCategoryId = this.fetchCategoryId.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.submitProduct = this.submitProduct.bind(this);
     };
@@ -34,13 +33,6 @@ class TestProduct extends Component {
             });
     };
 
-    fetchCategoryId() {
-        const category = this.state.selectedCategory;
-        axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/categories/category?name=" + category)
-            .then(response => {
-                this.setState({categoryId: response.data})
-            })
-    };
 
     submitProduct = event => {
         event.preventDefault();
