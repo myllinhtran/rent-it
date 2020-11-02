@@ -19,6 +19,7 @@ public interface PlatformService {
 
     Optional<Category> findCategoryById(int id);
     Category findCategoryByName(String name);
+    Category findCategoryByProduct(int id);
     Collection<Category> findAllCategories();
     Category createCategory(Category category);
     Category editCategory(Category category);

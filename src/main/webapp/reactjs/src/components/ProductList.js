@@ -22,13 +22,7 @@ class ProductList extends Component {
         axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/products")
             .then(response => {
                 if (response.data != null) {
-                    this.setState({
-                        id: response.data.id,
-                        name: response.data.name,
-                        pricePerDay: response.data.pricePerDay,
-                        description: response.data.description,
-                        category: response.data.category
-                    })
+                    this.setState({products: response.data})
                 }
             });
     };
@@ -38,30 +32,33 @@ class ProductList extends Component {
         return (
             <div>
                 {
-                    this.state.products.map((product) => (
-                        <Card className="border border-grey bg-light text-dark" key={product.id}
-                              style={{margin: "0 0 20px 0"}}>
-                            <Row>
-                                <Col xs={2} className={"square"}>
-                                    <Image
-                                        src={Bob}
-                                        className={"container"}
-                                    />
-                                </Col>
-                                <Col>
-                                    <Card.Body>
-                                        <Card.Title>{product.name} {product.category.name}</Card.Title>
-                                        <Card.Text>
-                                            {product.description}
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <Card.Footer align={"right"}>
-                                        <Link to={"/products/detail/" + product.id}>See more</Link>
-                                    </Card.Footer>
-                                </Col>
-                            </Row>
-                        </Card>
-                    ))
+                    this.state.products.map((product) => {
+                            return (
+                                <Card className="border border-grey bg-light text-dark" key={product.id}
+                                      style={{margin: "0 0 20px 0"}}>
+                                    <Row>
+                                        <Col xs={2} className={"square"}>
+                                            <Image
+                                                src={Bob}
+                                                className={"container"}
+                                            />
+                                        </Col>
+                                        <Col>
+                                            <Card.Body>
+                                                <Card.Title>{product.name}</Card.Title>
+                                                <Card.Text>
+                                                    {product.description}
+                                                </Card.Text>
+                                            </Card.Body>
+                                            <Card.Footer align={"right"}>
+                                                <Link to={"/products/detail/" + product.id}>See more</Link>
+                                            </Card.Footer>
+                                        </Col>
+                                    </Row>
+                                </Card>
+                            )
+                        }
+                    )
                 }
             </div>
         );

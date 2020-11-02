@@ -23,15 +23,14 @@ class ProductDetail extends Component {
             .then(response => {
                 if (response.data != null) {
                     this.setState({
-                        id: response.data.id,
                         name: response.data.name,
-                        pricePerDay: response.data.pricePerDay,
                         description: response.data.description,
-                        category: response.data.category.name
+                        pricePerDay: response.data.pricePerDay
                     })
                 }
             });
-    }
+    };
+
 
     render() {
 

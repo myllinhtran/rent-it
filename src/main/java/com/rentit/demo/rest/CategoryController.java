@@ -1,7 +1,6 @@
 package com.rentit.demo.rest;
 
 import com.rentit.demo.model.Category;
-import com.rentit.demo.model.Product;
 import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.MessageFormat;
 import java.util.Collection;
-import java.util.Optional;
 
 
 @RestController
@@ -25,7 +23,7 @@ public class CategoryController {
         return ResponseEntity.ok(platformService.findAllCategories());
     }
 
-    @GetMapping(path = "/categories/{id}")
+    /*@GetMapping(path = "/categories/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable("id") int id) {
         Optional<Category> optionalCategory = platformService.findCategoryById(id);
         if (optionalCategory.isEmpty()) {
@@ -34,6 +32,17 @@ public class CategoryController {
         else {
             return ResponseEntity.ok(optionalCategory.get());
         }
+    }*/
+
+    @GetMapping(path = "/categories/{productId}")
+    public Category getCategoryById(@PathVariable("productId") int id) {
+        return platformService.findCategoryByProduct(id);
+    }
+
+    @GetMapping(path = "/categories/category")
+    @ResponseBody
+    public Category getId(@RequestParam String name) {
+        return platformService.findCategoryByName(name);
     }
 
     @PostMapping(path = "/categories")
