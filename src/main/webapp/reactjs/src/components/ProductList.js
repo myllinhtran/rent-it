@@ -14,13 +14,6 @@ class ProductList extends Component {
         }
     };
 
-    products = {
-        id: '',
-        name: '',
-        pricePerDay: '',
-        description: ''
-    };
-
     componentDidMount() {
         this.getProducts();
     };
