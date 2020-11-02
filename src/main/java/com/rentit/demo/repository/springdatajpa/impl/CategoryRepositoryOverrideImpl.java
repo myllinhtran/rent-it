@@ -17,7 +17,7 @@ public class CategoryRepositoryOverrideImpl implements CategoryRepositoryOverrid
     @Override
     public Category findCategoryByProduct(int productId) {
         Query query = this.entityManager.createQuery(
-                "SELECT category FROM Product product join product.category category on category.id = product.category.id WHERE product.id =:id");
+                "SELECT category, product FROM Product product join product.category category on category.id = product.category.id WHERE product.id =:id");
         query.setParameter("id", productId);
         return ( Category ) query.getSingleResult();
     }
