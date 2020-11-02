@@ -21,7 +21,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private Set<Product> products = new HashSet<>();
+    private Set<Product> products;
 
 
 
