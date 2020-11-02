@@ -114,12 +114,12 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Override
     public Product editProduct(Product product) {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override
     public void deleteProduct(int id) {
-
+        productRepository.deleteById(id);
     }
 
     @Override
