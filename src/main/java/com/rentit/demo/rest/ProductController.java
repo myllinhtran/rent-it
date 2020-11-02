@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -34,5 +35,21 @@ public class ProductController {
         else {
             return ResponseEntity.ok(optionalProduct.get());
         }
+    }
+
+    @PostMapping(path = "/products")
+    public Product createProduct(@RequestBody Product product) {
+        return platformService.createProduct(product);
+    }
+
+    @PutMapping(path = "/categories")
+    public Product updateProduct(@RequestBody Product product) {
+        return platformService.editProduct(product);
+    }
+
+    @DeleteMapping(path = "/categories/{id}")
+    public String deleteProduct(@PathVariable("id") int id) {
+        platformService.deleteProduct(id);
+        return MessageFormat.format("Product with ID {0} has been deleted.", id);
     }
 }
