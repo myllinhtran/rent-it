@@ -73,6 +73,11 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    public Category findCategoryByName(String name) {
+        return categoryRepository.getCategoryByName(name);
+    }
+
+    @Override
     public Collection<Category> findAllCategories() {
         return categoryRepository.findAll();
     }

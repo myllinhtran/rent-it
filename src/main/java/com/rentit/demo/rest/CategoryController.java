@@ -35,6 +35,11 @@ public class CategoryController {
         }
     }
 
+    @GetMapping(path = "/categories/category")
+    public @ResponseBody Category getCategoryByName(@RequestParam String name) {
+        return platformService.findCategoryByName(name);
+    }
+
     @PostMapping(path = "/categories")
     public Category createCategory(@RequestBody Category category) {
         return platformService.createCategory(category);
