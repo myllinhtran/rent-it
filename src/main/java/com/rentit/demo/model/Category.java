@@ -22,9 +22,8 @@ public class Category {
     private String name;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "category", targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Product> products = new HashSet<>();
-
 
 
     public Integer getId() {
