@@ -11,14 +11,7 @@ class ProductList extends Component {
         super(props);
         this.state = {
             products: []
-        }
-    };
-
-    products = {
-        id: '',
-        name: '',
-        pricePerDay: '',
-        description: ''
+        };
     };
 
     componentDidMount() {
@@ -27,9 +20,16 @@ class ProductList extends Component {
 
     getProducts = () => {
         axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/products")
-            .then(response => response.data)
-            .then(data => {
-                this.setState({products: data});
+            .then(response => {
+                if (response.data != null) {
+                    this.setState({
+                        id: response.data.id,
+                        name: response.data.name,
+                        pricePerDay: response.data.pricePerDay,
+                        description: response.data.description,
+                        category: response.data.category
+                    })
+                }
             });
     };
 
@@ -50,7 +50,7 @@ class ProductList extends Component {
                                 </Col>
                                 <Col>
                                     <Card.Body>
-                                        <Card.Title>{product.name}</Card.Title>
+                                        <Card.Title>{product.name} {product.category.name}</Card.Title>
                                         <Card.Text>
                                             {product.description}
                                         </Card.Text>

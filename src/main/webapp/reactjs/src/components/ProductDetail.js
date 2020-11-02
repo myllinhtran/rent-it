@@ -26,7 +26,8 @@ class ProductDetail extends Component {
                         id: response.data.id,
                         name: response.data.name,
                         pricePerDay: response.data.pricePerDay,
-                        description: response.data.description
+                        description: response.data.description,
+                        category: response.data.category.name
                     })
                 }
             });
