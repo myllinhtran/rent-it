@@ -1,6 +1,7 @@
 package com.rentit.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -20,8 +21,9 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private Set<Product> products;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "category", targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Product> products = new HashSet<>();
 
 
 

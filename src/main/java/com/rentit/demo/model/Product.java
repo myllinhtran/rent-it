@@ -1,5 +1,6 @@
 package com.rentit.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -23,7 +24,7 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    @JsonBackReference
     private Category category;
 
     public Integer getId() {
