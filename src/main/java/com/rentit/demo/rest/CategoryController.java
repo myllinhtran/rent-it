@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.MessageFormat;
 import java.util.Collection;
+import java.util.Optional;
 
 
 @RestController
@@ -23,7 +24,7 @@ public class CategoryController {
         return ResponseEntity.ok(platformService.findAllCategories());
     }
 
-    /*@GetMapping(path = "/categories/{id}")
+    @GetMapping(path = "/categories/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable("id") int id) {
         Optional<Category> optionalCategory = platformService.findCategoryById(id);
         if (optionalCategory.isEmpty()) {
@@ -32,18 +33,6 @@ public class CategoryController {
         else {
             return ResponseEntity.ok(optionalCategory.get());
         }
-    }*/
-
-    @GetMapping(path = "/categories/{productId}")
-    public Category getCategoryById(@PathVariable("productId") int id) {
-        return platformService.findCategoryByProduct(id);
-    }
-
-    // Test
-    @GetMapping(path = "/categories/category")
-    @ResponseBody
-    public Category getId(@RequestParam String productId) {
-        return platformService.findCategoryByProduct(Integer.parseInt(productId));
     }
 
     @PostMapping(path = "/categories")
