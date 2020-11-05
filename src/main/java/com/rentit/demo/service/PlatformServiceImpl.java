@@ -123,18 +123,18 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    public RentedProduct findRentedProductById(int id) {
-        return null;
+    public Optional<RentedProduct> findRentedProductById(int id) {
+        return rentedProductRepository.findById(id);
     }
 
     @Override
     public Collection<RentedProduct> findRentedProductByRenter(int id) {
-        return null;
+        return rentedProductRepository.getProductByRenter(id);
     }
 
     @Override
     public Collection<RentedProduct> findRentedProductByRentee(int id) {
-        return null;
+        return rentedProductRepository.getProductByRentee(id);
     }
 
     @Override
