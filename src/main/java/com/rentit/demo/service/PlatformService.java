@@ -17,8 +17,6 @@ public interface PlatformService {
     Account editAccount(Account account);
     void deleteAccount(int id);
 
-    Account findRenterByProduct(int id);
-
     Optional<Category> findCategoryById(int id);
     Category findCategoryByName(String name);
     Collection<Category> findAllCategories();
@@ -37,4 +35,6 @@ public interface PlatformService {
     Collection<RentedProduct> findRentedProductByRentee(int id);
     Iterable<RentedProduct> findAllRentedProducts();
     void removeRentedProduct(int id);
+
+    Collection<RentedProduct> findRenterByProduct(int id);
 }

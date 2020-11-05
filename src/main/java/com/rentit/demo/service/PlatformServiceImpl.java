@@ -67,10 +67,6 @@ public class PlatformServiceImpl implements PlatformService {
         accountRepository.deleteById(id);
     }
 
-    @Override
-    public Account findRenterByProduct(int id) {
-        return accountRepository.findRenterByProduct(id);
-    }
 
     @Override
     public Optional<Category> findCategoryById(int id) {
@@ -150,6 +146,11 @@ public class PlatformServiceImpl implements PlatformService {
     @Override
     public void removeRentedProduct(int id) {
 
+    }
+
+    @Override
+    public Collection<RentedProduct> findRenterByProduct(int id) {
+        return rentedProductRepository.getRenterByProduct(id);
     }
 
 

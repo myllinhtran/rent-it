@@ -7,6 +7,4 @@ import com.rentit.demo.model.Account;
 public interface JpaAccountRepository {
 
     Account findAccountById(int id);
-
-    Account findRenterByProduct(int id);
 }

@@ -1,5 +1,6 @@
 package com.rentit.demo.rest;
 
+import com.rentit.demo.model.Account;
 import com.rentit.demo.model.RentedProduct;
 import com.rentit.demo.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,10 @@ public class RentedProductController {
     @DeleteMapping(path = "/rented-products/{id}")
     public void deleteRentedProductById(@PathVariable("id") int id) {
         platformService.removeRentedProduct(id);
+    }
+
+    @GetMapping(path = "/accounts/rented-products")
+    public @ResponseBody Collection<RentedProduct> getRenterByProduct(@RequestParam int productId) {
+        return platformService.findRenterByProduct(productId);
     }
 }

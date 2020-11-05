@@ -13,4 +13,5 @@ public interface JpaRentedProductRepository {
 
     Collection<RentedProduct> getProductByRentee(int id);
 
+    Collection<RentedProduct> getRenterByProduct(int id);
 }
