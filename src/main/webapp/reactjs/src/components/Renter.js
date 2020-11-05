@@ -105,7 +105,7 @@ class Renter extends Component {
     };
 
     renterList = () => {
-        return this.props.history.push("/users");
+        return this.props.history.push("/accounts");
     };
 
     render() {
@@ -114,7 +114,7 @@ class Renter extends Component {
 
         return (
 
-            <div>
+            <div style={{margin: "20px 60px 80px 60px"}}>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
                     <MyToast show={this.state.show}
                              message={this.state.id ? "Renter Updated Successfully." : "Renter Saved Successfully."}

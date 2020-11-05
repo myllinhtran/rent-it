@@ -27,6 +27,7 @@ public class Product {
     @JsonBackReference
     private Category category;
 
+
     public Integer getId() {
         return id;
     }

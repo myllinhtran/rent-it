@@ -48,7 +48,7 @@ class RenterList extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{margin: "20px 60px 80px 60px"}}>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
                     <MyToast show={this.state.show} message={"Renter Deleted Successfully."} type={"danger"}/>
                 </div>

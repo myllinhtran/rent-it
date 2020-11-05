@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Col, Card, Image} from 'react-bootstrap';
+import {Card, CardColumns} from 'react-bootstrap';
 import axios from 'axios';
 import Bob from './img/Bob.png';
 import {Link} from "react-router-dom";
@@ -30,36 +30,30 @@ class ProductList extends Component {
     render() {
 
         return (
-            <div>
-                {
-                    this.state.products.map((product) => {
-                            return (
-                                <Card className="border border-grey bg-light text-dark" key={product.id}
-                                      style={{margin: "0 0 20px 0"}}>
-                                    <Row>
-                                        <Col xs={2} className={"square"}>
-                                            <Image
-                                                src={Bob}
-                                                className={"container"}
-                                            />
-                                        </Col>
-                                        <Col>
-                                            <Card.Body>
-                                                <Card.Title>{product.name}</Card.Title>
-                                                <Card.Text>
-                                                    {product.description}
-                                                </Card.Text>
-                                            </Card.Body>
-                                            <Card.Footer align={"right"}>
-                                                <Link to={"/products/detail/" + product.id}>See more</Link>
-                                            </Card.Footer>
-                                        </Col>
-                                    </Row>
-                                </Card>
-                            )
-                        }
-                    )
-                }
+            <div align={"center"} style={{margin: "20px 60px 60px 60px"}}>
+                <CardColumns>
+                    {
+                        this.state.products.map((product) => {
+                                return (
+                                    <Card className="border border-grey bg-light text-dark"
+                                          key={product.id}
+                                          style={{width: '20rem', margin: "0px 15px 15px 0"}}>
+                                        <Card.Img variant={"top"} src={Bob}/>
+                                        <Card.Body>
+                                            <Card.Title align={"left"}>{product.pricePerDay} €</Card.Title>
+                                            <Card.Text align={"left"}>
+                                                <Link to={"/products/detail/" + product.id}
+                                                      style={{textDecoration: "none", color: "black"}}>
+                                                    {product.name}
+                                                </Link>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                )
+                            }
+                        )
+                    }
+                </CardColumns>
             </div>
         );
     }

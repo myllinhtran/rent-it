@@ -3,7 +3,9 @@
 }
 
 .jumbotron {
-    margin-top: 50px;
+    margin: 20px 60px 20px 60px;
+    align-content: center;
+    padding-left: 100px;
 }
 
 p {
@@ -12,11 +14,11 @@ p {
 }
 
 .navbar-brand {
-    margin-left: 100px;
+    margin-left: 200px;
 }
 
 .nav-link {
-    margin-left: 50px
+    margin-left: 100px
 }
 
 h2 {
@@ -24,8 +26,10 @@ h2 {
     margin-left: 30px;
 }
 
-img {
-    max-width: 100%;
+.carousel-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
 }
 
 .square {
@@ -36,3 +40,4 @@ img {
 .image-upload {
     margin-top: 12px;
 }
+

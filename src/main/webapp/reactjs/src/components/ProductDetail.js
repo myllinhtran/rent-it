@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
-import {Card, Col, Row} from "react-bootstrap";
+import Bob from './img/Bob.png';
+import home_img from './img/home_img.png';
+import {Card, Row, Col} from "react-bootstrap";
 import axios from 'axios';
+import Carousel from "react-bootstrap/Carousel";
 
 class ProductDetail extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            products: []
-        };
+            products: [],
+            selectedIndex: '',
+            date: ''
+        }
     };
 
     componentDidMount() {
@@ -23,9 +28,10 @@ class ProductDetail extends Component {
             .then(response => {
                 if (response.data != null) {
                     this.setState({
+                        id: response.data.id,
                         name: response.data.name,
                         description: response.data.description,
-                        pricePerDay: response.data.pricePerDay
+                        pricePerDay: response.data.pricePerDay,
                     })
                 }
             });
@@ -34,17 +40,35 @@ class ProductDetail extends Component {
 
     render() {
 
-        const {name, description, pricePerDay} = this.state;
+        const {id, name, description, pricePerDay} = this.state;
 
         return (
-            <div>
+            <div style={{margin: "20px 60px 80px 60px"}}>
                 <Card className="border border-grey bg-light text-dark">
-                    <Card.Header></Card.Header>
+                    <Card.Header>ID: {id}</Card.Header>
                     <Card.Body>
-                        <Card.Title>{name}</Card.Title>
                         <Row>
-                            <Col xs={12}>{description}</Col>
-                            <Col>Daily Pricing: {pricePerDay} euros</Col>
+                            <Col>
+                                <Carousel align={"center"}>
+                                    <Carousel.Item>
+                                        <img src={Bob} alt={"Bob"} className={"carousel-img"}/>
+                                    </Carousel.Item>
+                                    <Carousel.Item>
+                                        <img src={home_img} alt={"home_img"} className={"carousel-img"}/>
+                                    </Carousel.Item>
+                                </Carousel>
+                            </Col>
+                            <Col>
+                                <Card>
+                                    <Card.Header style={{fontSize: "20px"}}>{name}</Card.Header>
+                                    <Card.Body>
+                                        <Card.Title style={{fontSize: "35px"}}>{pricePerDay} €</Card.Title>
+                                        <Card.Text>
+                                            <p>{description}</p>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
                         </Row>
                     </Card.Body>
                 </Card>
