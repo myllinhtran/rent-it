@@ -68,6 +68,11 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    public Account findRenterByProduct(int id) {
+        return accountRepository.findRenterByProduct(id);
+    }
+
+    @Override
     public Optional<Category> findCategoryById(int id) {
         return categoryRepository.findById(id);
     }

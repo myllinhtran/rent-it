@@ -17,6 +17,8 @@ public interface PlatformService {
     Account editAccount(Account account);
     void deleteAccount(int id);
 
+    Account findRenterByProduct(int id);
+
     Optional<Category> findCategoryById(int id);
     Category findCategoryByName(String name);
     Collection<Category> findAllCategories();

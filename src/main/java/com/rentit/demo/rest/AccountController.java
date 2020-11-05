@@ -44,4 +44,10 @@ public class AccountController {
         platformService.deleteAccount(id);
         return MessageFormat.format("Account with ID {0} has been deleted.", id);
     }
+
+    @GetMapping(path = "/accounts/rented-products")
+    public Account getRenterByProduct(@RequestParam int productId) {
+        return platformService.findRenterByProduct(productId);
+    }
+
 }
