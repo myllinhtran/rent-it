@@ -149,7 +149,7 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    public Collection<RentedProduct> findRenterByProduct(int id) {
+    public RentedProduct findRenterByProduct(int id) {
         return rentedProductRepository.getRenterByProduct(id);
     }
 

@@ -36,5 +36,5 @@ public interface PlatformService {
     Iterable<RentedProduct> findAllRentedProducts();
     void removeRentedProduct(int id);
 
-    Collection<RentedProduct> findRenterByProduct(int id);
+    RentedProduct findRenterByProduct(int id);
 }
