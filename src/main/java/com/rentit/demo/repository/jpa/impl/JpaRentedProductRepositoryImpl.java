@@ -1,6 +1,5 @@
 package com.rentit.demo.repository.jpa.impl;
 
-import com.rentit.demo.model.Account;
 import com.rentit.demo.model.RentedProduct;
 import com.rentit.demo.repository.jpa.JpaRentedProductRepository;
 import org.springframework.stereotype.Repository;
@@ -49,7 +48,7 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
     @SuppressWarnings("unchecked")
     public RentedProduct getRenterByProduct(int id) {
         Query query = this.entityManager.createQuery(
-                "SELECT rentedProduct, renter " +
+                "SELECT renter " +
                 "FROM RentedProduct rentedProduct join rentedProduct.renter renter on rentedProduct.renter.id = renter.id WHERE rentedProduct.product.id =:id");
         query.setParameter("id", id);
         return ( RentedProduct ) query.getSingleResult();
