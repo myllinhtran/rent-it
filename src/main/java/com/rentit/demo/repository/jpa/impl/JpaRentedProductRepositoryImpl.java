@@ -52,6 +52,6 @@ public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepositor
                 "SELECT rentedProduct, renter " +
                 "FROM RentedProduct rentedProduct join rentedProduct.renter renter on rentedProduct.renter.id = renter.id WHERE rentedProduct.product.id =:id");
         query.setParameter("id", id);
-        return ( RentedProduct ) query.getResultList();
+        return ( RentedProduct ) query.getSingleResult();
     }
 }
