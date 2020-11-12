@@ -4,6 +4,7 @@ import {Card, Form, Button, Col} from "react-bootstrap";
 import {faList, faPlusSquare, faSave, faUndo} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import MyToast from "./MyToast";
+import './css/Renter.css';
 
 class Renter extends Component {
 
@@ -114,7 +115,7 @@ class Renter extends Component {
 
         return (
 
-            <div style={{margin: "20px 60px 80px 60px"}}>
+            <div className={"renter"}>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
                     <MyToast show={this.state.show}
                              message={this.state.id ? "Renter Updated Successfully." : "Renter Saved Successfully."}

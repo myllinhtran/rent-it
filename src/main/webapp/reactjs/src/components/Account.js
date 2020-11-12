@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Card, Row, Col, Image} from "react-bootstrap";
 import Bob from './img/Bob.png';
+import './css/Account.css';
 
 class Account extends Component {
 
@@ -9,7 +10,7 @@ class Account extends Component {
         const {id, firstName, lastName, email, mobile} = this.props;
 
         return (
-            <div>
+            <div className={"Account"}>
                 <br/>
                 <Card style={{margin: "0 0 20px 0"}}>
                     <Card.Header>Account ID: {id}</Card.Header>

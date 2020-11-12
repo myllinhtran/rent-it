@@ -1,0 +1,19 @@
+.product-list {
+    width: 80%;
+    margin: auto auto 45px;
+}
+
+.product-form {
+    width: 80%;
+    margin: auto;
+}
+
+.product-container {
+    width: 60%;
+    margin: auto auto 60px;
+}
+
+.product-img {
+    align-self: center;
+    border-radius: 0;
+}

@@ -1,15 +1,14 @@
 package com.rentit.demo.service;
 
-import com.rentit.demo.model.Account;
-import com.rentit.demo.model.Category;
-import com.rentit.demo.model.Product;
-import com.rentit.demo.model.RentedProduct;
+import com.rentit.demo.model.*;
 
 import java.util.Collection;
 import java.util.Optional;
 
 
 public interface PlatformService {
+
+    User createUser(User user);
 
     Account findAccountById(int id);
     Iterable<Account> findAllAccounts();

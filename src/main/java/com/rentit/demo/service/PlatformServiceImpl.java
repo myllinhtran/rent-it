@@ -1,13 +1,7 @@
 package com.rentit.demo.service;
 
-import com.rentit.demo.model.Account;
-import com.rentit.demo.model.Category;
-import com.rentit.demo.model.Product;
-import com.rentit.demo.model.RentedProduct;
-import com.rentit.demo.repository.AccountRepository;
-import com.rentit.demo.repository.CategoryRepository;
-import com.rentit.demo.repository.ProductRepository;
-import com.rentit.demo.repository.RentedProductRepository;
+import com.rentit.demo.model.*;
+import com.rentit.demo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +13,7 @@ import java.util.Optional;
 @Service
 public class PlatformServiceImpl implements PlatformService {
 
+    private UserRepository userRepository;
     private AccountRepository accountRepository;
     private CategoryRepository categoryRepository;
     private ProductRepository productRepository;
@@ -26,15 +21,23 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Autowired
     public PlatformServiceImpl(
+            UserRepository userRepository,
             AccountRepository accountRepository,
             CategoryRepository categoryRepository,
             ProductRepository productRepository,
             RentedProductRepository rentedProductRepository
     ) {
+        this.userRepository = userRepository;
         this.accountRepository = accountRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
         this.rentedProductRepository = rentedProductRepository;
+    }
+
+    @Override
+    @Transactional
+    public User createUser(User user) {
+        return userRepository.add(user);
     }
 
     @Override

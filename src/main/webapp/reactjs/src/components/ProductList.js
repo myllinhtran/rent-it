@@ -3,7 +3,7 @@ import {Card, CardColumns} from 'react-bootstrap';
 import axios from 'axios';
 import Bob from './img/Bob.png';
 import {Link} from "react-router-dom";
-
+import './css/Product.css';
 
 class ProductList extends Component {
 
@@ -30,14 +30,13 @@ class ProductList extends Component {
     render() {
 
         return (
-            <div align={"center"} style={{margin: "20px 60px 60px 60px"}}>
+            <div className={"product-list"}>
                 <CardColumns>
                     {
                         this.state.products.map((product) => {
                                 return (
-                                    <Card className="border border-grey bg-light text-dark"
-                                          key={product.id}
-                                          style={{width: '20rem', margin: "0px 15px 15px 0"}}>
+                                    <Card className="product-card"
+                                          key={product.id}>
                                         <Card.Img variant={"top"} src={Bob}/>
                                         <Card.Body>
                                             <Card.Title align={"left"}>{product.pricePerDay} €</Card.Title>

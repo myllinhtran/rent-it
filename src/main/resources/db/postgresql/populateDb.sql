@@ -11,4 +11,4 @@
 # insert into rentit.rented_products values (default, 3, 5, 4, 6, 'Quang Binh', '2020-10-24', '2020-10-27');
 
 # insert into rentit.products values (default, 3, 'Honda Vision 2017', 70, 'Detail information about Honda Vision 2017');
-insert into rentit.products values (default, 3, 'Yamaha Mio Classic 2010', 40, 'Detail information about Yamaha Mio Classic 2010');
+# insert into rentit.products values (default, 3, 'Yamaha Mio Classic 2010', 40, 'Detail information about Yamaha Mio Classic 2010');

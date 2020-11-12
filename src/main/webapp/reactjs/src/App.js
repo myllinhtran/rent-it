@@ -11,7 +11,6 @@ import ProductList from "./components/ProductList";
 import Product from "./components/Product";
 import ProductDetail from "./components/ProductDetail";
 import Profile from "./components/Profile";
-import Account from "./components/Account";
 
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
                             <Route path="/products/edit/:id" exact component={Product}/>
                             <Route path="/products/detail/:id" exact component={ProductDetail}/>
                             <Route path="/profile/:id" exact component={Profile}/>
-                            <Route path="/accounts" exact component={Account}/>
                         </Switch>
                     </Col>
                 </Row>

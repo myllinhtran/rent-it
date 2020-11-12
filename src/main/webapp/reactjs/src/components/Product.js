@@ -3,7 +3,7 @@ import {Button, Card, Col, Form, InputGroup} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faList, faPlusSquare, faSave, faUndo} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
-
+import './css/Product.css';
 
 class Product extends Component {
 
@@ -85,7 +85,7 @@ class Product extends Component {
         const {name, pricePerDay, description, selectedCategory} = this.state;
 
         return (
-            <div>
+            <div className={"product-form"}>
                 <Card>
                     <Card.Header><FontAwesomeIcon icon={faPlusSquare}/> Information About Your Product</Card.Header>
                     <Form id={"productFormId"} onSubmit={this.submitProduct} onReset={this.resetProduct}>

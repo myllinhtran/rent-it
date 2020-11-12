@@ -83,7 +83,7 @@ class Profile extends Component {
         const {id, firstName, lastName, mobile, email} = this.state;
 
         return (
-            <div className={"card-body"}>
+            <div className={"profile-tab"}>
                 <Tabs defaultActiveKey={"account"} onSelect={this.handleSelect} transition={false}>
                     <TabPane eventKey={"account"} title={"Account"}>
                         <Account

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Bob from './img/Bob.png';
 import {Card} from "react-bootstrap";
 import axios from 'axios';
+import './css/Product.css';
 
 
 class ProductDetail extends Component {
@@ -10,7 +11,7 @@ class ProductDetail extends Component {
         super(props);
         this.state = {
             products: [],
-            rentedProduct: []
+            rentedProduct: {}
         };
 
         this.findProductById = this.findProductById.bind(this);
@@ -19,19 +20,21 @@ class ProductDetail extends Component {
 
     rentedProduct = {
         productId: '',
-        category: [],
-        product: [],
-        rentee: [],
-        renter: {
-            renterId: '',
-            firstName: '',
-            lastName: '',
-            email: '',
-            mobile: ''
-        },
+        category: '',
+        product: {},
+        renter: {},
+        rentee: {},
         address: '',
         startDate: '',
         endDate: ''
+    };
+
+    renter = {
+        renterId: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        mobile: ''
     };
 
     componentDidMount() {
@@ -40,7 +43,7 @@ class ProductDetail extends Component {
             this.findProductById(productId);
             this.findRenterByProductId(productId);
         }
-        console.log(this.state.rentedProduct)
+        console.log(this.state.rentedProduct);
     };
 
     findProductById = (productId) => {
@@ -53,7 +56,6 @@ class ProductDetail extends Component {
                         description: response.data.description,
                         pricePerDay: response.data.pricePerDay,
                     });
-                    console.log(response.data);
                 }
             });
     };
@@ -61,16 +63,26 @@ class ProductDetail extends Component {
     findRenterByProductId = (productId) => {
         axios.get("https://safe-sierra-04090.herokuapp.com/api/v1/accounts/rented-products?productId=" + productId)
             .then(response => {
-                console.log(response.data)
-                this.setState({
-                    rentedProduct: response.data
-                })
+                if (response.data != null) {
+                    this.setState({
+                        productId: response.data.id,
+                        startDate: response.data.startDate,
+                        endDate: response.data.endDate,
+                        address: response.data.address,
+                        renter: response.data.renter
+                    });
+                    console.log(response.data)
+                }
             });
     };
 
     render() {
 
         const {id, name, description, pricePerDay} = this.state;
+
+        const {productId, endDate, startDate, address} = this.state;
+
+        const renter = this.state;
 
         return (
             <div className={"product-container"}>
@@ -84,8 +96,21 @@ class ProductDetail extends Component {
                         }}>{name}</Card.Title>
                         <Card.Subtitle style={{fontSize: "35px"}}>{pricePerDay} €</Card.Subtitle>
                     </Card.Body>
-                    <Card.Img src={Bob} alt={"Bob"} className={"img-product"}/>
-                    <Card.Text style={{margin: "20px"}}>{description}</Card.Text>
+                    <Card.Img src={Bob} alt={"Bob"} className={"product-img"}/>
+                    <Card.Text style={{margin: "20px"}}>
+                        {description}
+                    </Card.Text>
+                </Card>
+                <br/>
+                <Card>
+                    <Card.Header>{productId}</Card.Header>
+                    <Card.Body>
+                        <Card.Title>{address}</Card.Title>
+                        <Card.Subtitle style={{fontWeight: "normal"}}>{startDate} to {endDate}</Card.Subtitle>
+                        <Card.Text>
+                            {renter.firstName}
+                        </Card.Text>
+                    </Card.Body>
                 </Card>
             </div>
         );

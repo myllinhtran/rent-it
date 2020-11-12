@@ -5,6 +5,7 @@ import {faEdit, faList, faTrash} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import MyToast from "./MyToast";
 import {Link} from "react-router-dom";
+import './css/Renter.css';
 
 
 class RenterList extends Component {
@@ -48,7 +49,7 @@ class RenterList extends Component {
 
     render() {
         return (
-            <div style={{margin: "20px 60px 80px 60px"}}>
+            <div className={"renter-list"}>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
                     <MyToast show={this.state.show} message={"Renter Deleted Successfully."} type={"danger"}/>
                 </div>

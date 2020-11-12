@@ -1,11 +1,12 @@
 .App {
     text-align: left;
+    margin: auto;
+    width: 80%;
 }
 
 .jumbotron {
-    margin: 20px 60px 20px 60px;
-    align-content: center;
-    padding-left: 100px;
+    margin: auto;
+    width: 80%;
 }
 
 p {
@@ -13,13 +14,6 @@ p {
     margin-top: 20px;
 }
 
-.navbar-brand {
-    margin-left: 200px;
-}
-
-.nav-link {
-    margin-left: 100px
-}
 
 h2 {
     margin-top: 30px;
@@ -33,13 +27,4 @@ h2 {
 
 .image-upload {
     margin-top: 12px;
-}
-
-.img-product {
-    align-self: center;
-    border-radius: 0;
-}
-
-.product-container {
-    margin: 20px 200px 80px 200px;
 }
