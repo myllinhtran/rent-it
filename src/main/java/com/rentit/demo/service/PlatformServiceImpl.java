@@ -13,7 +13,6 @@ import java.util.Optional;
 @Service
 public class PlatformServiceImpl implements PlatformService {
 
-    private UserRepository userRepository;
     private AccountRepository accountRepository;
     private CategoryRepository categoryRepository;
     private ProductRepository productRepository;
@@ -21,24 +20,17 @@ public class PlatformServiceImpl implements PlatformService {
 
     @Autowired
     public PlatformServiceImpl(
-            UserRepository userRepository,
             AccountRepository accountRepository,
             CategoryRepository categoryRepository,
             ProductRepository productRepository,
             RentedProductRepository rentedProductRepository
     ) {
-        this.userRepository = userRepository;
         this.accountRepository = accountRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
         this.rentedProductRepository = rentedProductRepository;
     }
-
-    @Override
-    @Transactional
-    public User createUser(User user) {
-        return userRepository.add(user);
-    }
+    
 
     @Override
     public Account findAccountById(int id) {

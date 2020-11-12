@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface PlatformService {
 
-    User createUser(User user);
-
     Account findAccountById(int id);
     Iterable<Account> findAllAccounts();
     Account createAccount(Account account);
