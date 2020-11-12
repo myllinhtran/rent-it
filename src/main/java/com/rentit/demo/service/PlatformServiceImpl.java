@@ -41,13 +41,11 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Account findAccountById(int id) {
         return accountRepository.findAccountById(id);
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Iterable<Account> findAllAccounts() {
         return accountRepository.findAll();
     }
@@ -87,16 +85,19 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    @Transactional
     public Category createCategory(Category category) {
         return categoryRepository.save(category);
     }
 
     @Override
+    @Transactional
     public Category editCategory(Category category) {
         return categoryRepository.save(category);
     }
 
     @Override
+    @Transactional
     public void deleteCategory(int id) {
         categoryRepository.deleteById(id);
     }
@@ -112,16 +113,19 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    @Transactional
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 
     @Override
+    @Transactional
     public Product editProduct(Product product) {
         return productRepository.save(product);
     }
 
     @Override
+    @Transactional
     public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
@@ -147,14 +151,12 @@ public class PlatformServiceImpl implements PlatformService {
     }
 
     @Override
+    @Transactional
     public void removeRentedProduct(int id) {
-
     }
 
     @Override
     public RentedProduct findRenterByProduct(int id) {
         return rentedProductRepository.getRenterByProduct(id);
     }
-
-
 }
