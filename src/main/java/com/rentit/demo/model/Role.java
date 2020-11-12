@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles", schema = "Rentit", uniqueConstraints = @UniqueConstraint(columnNames = {"username", "role"}))
+@Table(name = "roles", schema = "Rentit")
 public class Role {
 
     @ManyToOne

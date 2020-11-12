@@ -17,7 +17,7 @@ public class JpaUserRepositoryImpl implements JpaUserRepository {
     private EntityManager entityManager;
 
     @Override
-    public User add(User user) throws DataAccessException {
+    public User add(User user) {
         if (this.entityManager.find(User.class, user.getUsername()) != null) {
             this.entityManager.persist(user);
         }
