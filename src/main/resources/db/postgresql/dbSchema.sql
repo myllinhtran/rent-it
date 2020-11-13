@@ -49,19 +49,18 @@
 --     end_date    date         not null
 -- );
 
--- create table rentit.users
--- (
---     username varchar(20) not null,
---     password varchar(20) not null,
---     enabled boolean not null default true,
---     constraint pk_users primary key (username)
--- );
---
--- create table rentit.roles
--- (
---     id integer generated always as identity,
---     username varchar(20) not null,
---     role varchar(20) not null,
---     constraint pk_roles primary key (id),
---     constraint fk_users foreign key (username) references rentit.users(username)
--- );
+create table rentit.users
+(
+    id integer generated always as identity primary key ,
+    username varchar(20) not null,
+    password varchar(20) not null,
+    enabled boolean not null default true
+);
+
+create table rentit.roles
+(
+    id integer generated always as identity primary key ,
+    username varchar(20) not null,
+    role varchar(20) not null,
+    constraint fk_users foreign key (username) references rentit.users(username)
+);

@@ -1,3 +1,4 @@
+/*
 package com.rentit.demo.model;
 
 import javax.persistence.*;
@@ -62,4 +63,4 @@ public class User {
                ", roles=" + roles +
                '}';
     }
-}
+}*/
