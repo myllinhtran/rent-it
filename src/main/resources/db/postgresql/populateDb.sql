@@ -12,3 +12,5 @@
 
 # insert into rentit.products values (default, 3, 'Honda Vision 2017', 70, 'Detail information about Honda Vision 2017');
 # insert into rentit.products values (default, 3, 'Yamaha Mio Classic 2010', 40, 'Detail information about Yamaha Mio Classic 2010');
+
+# insert into rentit.roles values (default, 'mylinhtran', 'renter');

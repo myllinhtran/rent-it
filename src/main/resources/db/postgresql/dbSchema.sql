@@ -51,8 +51,7 @@
 
 create table rentit.users
 (
-    id integer generated always as identity primary key ,
-    username varchar(20) not null,
+    username varchar(20) not null unique primary key ,
     password varchar(20) not null,
     enabled boolean not null default true
 );
