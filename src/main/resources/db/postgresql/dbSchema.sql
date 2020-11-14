@@ -51,15 +51,23 @@
 
 create table rentit.users
 (
-    username varchar(20) not null unique primary key ,
-    password varchar(20) not null,
-    enabled boolean not null default true
+    id integer generated always as identity primary key,
+    username varchar(20) not null,
+    email varchar(50) not null,
+    password varchar(120) not null
 );
+
+create type rentit.erole as enum ('ROLE_USER', 'ROLE_MODERATOR', 'ROLE_ADMIN');
 
 create table rentit.roles
 (
-    id integer generated always as identity primary key ,
-    username varchar(20) not null,
-    role varchar(20) not null,
-    constraint fk_users foreign key (username) references rentit.users(username)
+    id integer generated always as identity primary key,
+    name rentit.erole
+);
+
+create table rentit.user_roles (
+    user_id integer not null,
+    role_id integer not null,
+    constraint fk_user foreign key (user_id) references rentit.users(id),
+    constraint fk_role foreign key (role_id) references rentit.roles(id)
 );

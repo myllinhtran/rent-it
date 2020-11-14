@@ -9,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.Collection;
 
-
 @Repository
 public class JpaRentedProductRepositoryImpl implements JpaRentedProductRepository {
 
