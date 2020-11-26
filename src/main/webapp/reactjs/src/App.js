@@ -11,6 +11,8 @@ import ProductList from "./components/ProductList";
 import Product from "./components/Product";
 import ProductDetail from "./components/ProductDetail";
 import Profile from "./components/Profile";
+import Login from "./components/Login";
+import Notfound from "./components/Handle404";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
                     <Col lg={12} style={marginTop}>
                         <Switch>
                             <Route path="/" exact component={Welcome}/>
+                            <Route path="/login" exact component={Login}/>
+                            <Route path="/notfound" exact component={Notfound}/>
                             <Route path="/renters" exact component={RenterList}/>
                             <Route path="/renters/add" exact component={Renter}/>
                             <Route path="/renters/edit/:id" exact component={Renter}/>
