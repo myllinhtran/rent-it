@@ -11,6 +11,7 @@ class NavigationBar extends Component {
                 <Link to="" className="navbar-brand">R E N T I T</Link>
                 <Nav className="mr-auto">
                     <Link to="renters" className="nav-link">Renter</Link>
+                    <Link to="products" className="nav-link">Product</Link>
                     <Link to="signup" className="nav-link">Signup</Link>
                     <Link to="login" className="nav-link">Login</Link>
                 </Nav>
